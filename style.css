@@ -1,33 +1,28 @@
 /* ========================================
-   COWAY PREMIUM - MODERN FLUID CSS 2026
-   ========================================
-*/
+   COWAY PREMIUM FULL STYLESHEET
+   ======================================== */
 
 :root {
-    --primary: #002d5d;       /* Coway Corporate Blue */
+    --primary: #002d5d;       /* Coway Blue */
     --accent: #25d366;        /* WhatsApp Green */
-    --text-main: #1d1d1f;     /* Near Black */
-    --text-sub: #86868b;      /* Muted Gray */
+    --text-main: #1d1d1f;
+    --text-sub: #86868b;
     --bg: #ffffff;
-    --card-bg: #f5f5f7;       /* Apple-style Light Gray */
+    --card-bg: #fbfbfd;
     --nav-height: 70px;
 }
 
-/* Base Reset */
 * {
     margin: 0;
     padding: 0;
-    box-shadow: none;
     box-sizing: border-box;
-    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-    -webkit-font-smoothing: antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 body {
-    background-color: var(--bg);
+    background: var(--bg);
     color: var(--text-main);
-    line-height: 1.6;
-    overflow-x: hidden; /* Prevents horizontal scroll on mobile */
+    line-height: 1.5;
 }
 
 .container {
@@ -36,17 +31,16 @@ body {
     padding: 0 24px;
 }
 
-/* 1. STICKY NAVIGATION */
+/* NAVIGATION */
 .nav {
     position: sticky;
     top: 0;
-    width: 100%;
     height: var(--nav-height);
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px); /* Premium blurry effect */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .nav-content {
@@ -57,20 +51,15 @@ body {
 }
 
 .nav-logo {
-    height: 28px; /* Professional logo sizing */
+    height: 28px;
     width: auto;
-    display: block;
-    transition: transform 0.2s ease;
-}
-
-.nav-logo:hover {
-    transform: scale(1.02);
 }
 
 .nav-links {
     display: flex;
     align-items: center;
     gap: 30px;
+    height: 100%;
 }
 
 .nav-links a {
@@ -78,104 +67,92 @@ body {
     color: var(--text-main);
     font-size: 0.9rem;
     font-weight: 500;
-    transition: color 0.2s;
-}
-
-.nav-links a:hover {
-    color: var(--primary);
 }
 
 .nav-btn {
     background: var(--primary);
     color: white !important;
-    padding: 10px 22px;
+    padding: 10px 20px;
     border-radius: 50px;
     font-weight: 600 !important;
 }
 
-/* MEGA MENU STYLES */
+/* MEGA MENU & DROPDOWN FIX */
 .dropdown {
-    position: static; /* Important for full-width mega menu */
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .dropbtn {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     cursor: pointer;
 }
 
-/* The Hidden Menu Container */
 .mega-menu {
     display: none;
     position: absolute;
-    top: var(--nav-height);
-    left: 0;
-    width: 100%;
+    top: 100%; /* Sits exactly at bottom of nav */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
     background: white;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    border-top: 1px solid #eee;
-    z-index: 999;
-    padding: 30px 0;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+    border-radius: 20px;
+    border: 1px solid #eee;
+    padding: 20px;
+    
+    /* THE BRIDGE: Invisible area to prevent closing while moving mouse */
+    padding-top: 35px;
+    margin-top: -15px; 
 }
 
-/* Show Menu on Hover */
 .dropdown:hover .mega-menu {
     display: block;
-    opacity: 1;
-    transform: translateY(0);
+    animation: slideUp 0.3s ease forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 .mega-content {
-    max-width: 1100px;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-    gap: 20px;
-    padding: 0 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
 
-/* Individual Item in Dropdown */
 .menu-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
-    color: var(--text-main);
     padding: 15px;
     border-radius: 12px;
     transition: background 0.2s;
 }
 
-.menu-item:hover {
-    background: var(--card-bg);
-}
+.menu-item:hover { background: var(--card-bg); }
 
 .menu-item img {
-    height: 80px; /* Small image like the official site */
-    width: auto;
-    margin-bottom: 10px;
+    height: 70px;
+    margin-bottom: 8px;
+    object-fit: contain;
 }
 
 .menu-item span {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
+    color: var(--primary);
 }
 
-/* Mobile: Hide dropdown or simplify */
-@media (max-width: 768px) {
-    .dropdown:hover .mega-menu {
-        display: none; /* Usually mobile uses a different "Hamburger" menu */
-    }
-}
-
-/* 2. HERO SECTION */
+/* HERO SECTION */
 .hero {
     text-align: center;
-    padding: 100px 0 60px;
+    padding: 80px 24px 40px;
 }
 
 .badge {
@@ -186,7 +163,6 @@ body {
     border-radius: 20px;
     font-size: 0.7rem;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 20px;
 }
@@ -194,81 +170,70 @@ body {
 .hero h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    letter-spacing: -1px;
     line-height: 1.1;
+    margin-bottom: 15px;
 }
 
-/* 3. PRODUCT GRID (FLUID) */
+.hero-subtext {
+    color: var(--text-sub);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* PRODUCT GRID */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    margin-bottom: 100px;
+    padding-bottom: 80px;
 }
 
-/* 4. PREMIUM CARDS */
 .card {
     background: var(--card-bg);
     border-radius: 28px;
     padding: 40px;
-    text-align: left;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    border: 1px solid transparent;
+    transition: all 0.4s ease;
 }
 
 .card:hover {
     background: #ffffff;
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.08);
-    border-color: #eee;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
 }
 
 .card-tag {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     font-size: 0.75rem;
     color: var(--text-sub);
     margin-bottom: 20px;
 }
 
 .img-container {
-    height: 220px;
+    height: 250px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .img-container img {
     max-height: 100%;
     width: auto;
-    object-fit: contain;
-}
-
-.card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
 }
 
 .price {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary);
     margin-bottom: 20px;
 }
 
-.price span {
-    font-size: 0.85rem;
-    font-weight: 400;
-    color: var(--text-sub);
-}
+.price span { font-size: 0.9rem; font-weight: 400; color: var(--text-sub); }
 
-.specs {
-    list-style: none;
-    margin-bottom: 30px;
-}
+.specs { list-style: none; margin-bottom: 30px; }
 
 .specs li {
     display: flex;
@@ -279,13 +244,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Icons styling */
-[data-lucide] {
-    width: 18px;
-    height: 18px;
-}
-
-/* 5. BUTTONS */
 .btn-primary {
     display: block;
     background: var(--primary);
@@ -293,69 +251,35 @@ body {
     text-align: center;
     text-decoration: none;
     padding: 16px;
-    border-radius: 16px;
+    border-radius: 14px;
     font-weight: 600;
-    transition: opacity 0.2s;
 }
 
-.btn-primary:hover {
-    opacity: 0.9;
-}
-
-/* 6. FLOATING WHATSAPP */
+/* FLOATING WHATSAPP */
 .floating-wa {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: var(--accent);
+    background: var(--accent);
     color: white;
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-    z-index: 9999;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    z-index: 10001;
     text-decoration: none;
-    transition: all 0.3s ease;
 }
 
-.floating-wa:hover {
-    transform: scale(1.1) rotate(10deg);
-}
+/* ICONS */
+[data-lucide] { width: 18px; height: 18px; }
+.floating-wa [data-lucide] { width: 28px; height: 28px; }
 
-.floating-wa [data-lucide] {
-    width: 28px;
-    height: 28px;
-}
-
-/* 7. RESPONSIVENESS (MOBILE) */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-    .hero {
-        padding: 60px 0 40px;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .nav-links {
-        display: none; /* Simplifies for mobile; adds a clean look */
-    }
-
-    .card {
-        padding: 30px;
-    }
-
-    .product-grid {
-        grid-template-columns: 1fr; /* Full width cards on mobile */
-    }
-
-    .floating-wa {
-        bottom: 20px;
-        right: 20px;
-        width: 56px;
-        height: 56px;
-    }
+    .hero h1 { font-size: 2.2rem; }
+    .nav-links { display: none; } /* Standard for quick simple landing pages */
+    .product-grid { grid-template-columns: 1fr; }
 }
