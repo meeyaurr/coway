@@ -1,26 +1,46 @@
 /* ========================================
-   COWAY PREMIUM - EXACT MOBILE MATCH
+   COWAY PREMIUM - FULL UNIFIED CSS (FINAL)
    ======================================== */
 
 :root {
-    --coway-blue: #00b0ea;
-    --coway-gray: #999999;
+    --coway-blue: #00b0ea;    /* Bright Blue (Mobile headings) */
+    --coway-gray: #999999;    /* Gray (Mobile sub-links) */
+    --menu-blue: #7ca4c4;     /* Blue-Gray (Desktop Mega Menu) */
     --text-dark: #1d1d1f;
+    --nav-height: 70px;
 }
 
-/* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+/* 1. RESET & BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
-/* Desktop Navigation (Hidden on Mobile) */
+body {
+    background-color: #ffffff;
+    color: var(--text-dark);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* 2. NAVIGATION BAR BASE */
 .nav {
-    height: 70px;
-    background: white;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #eee;
     position: sticky;
     top: 0;
+    height: var(--nav-height);
+    background: white;
     z-index: 1000;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
 }
 
 .nav-content {
@@ -31,80 +51,210 @@
     padding: 0 20px;
 }
 
-.nav-logo { height: 20px; width: auto; }
-
-.menu-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--coway-gray);
+.nav-logo {
+    height: 20px;
+    width: auto;
 }
 
-/* MOBILE OVERLAY - THE EXACT MATCH */
-.mobile-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: white;
-    z-index: 2000;
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    overflow-y: auto;
+/* 3. DESKTOP NAVIGATION (PC ONLY) */
+@media (min-width: 993px) {
+    /* Hide Mobile-specific elements */
+    .menu-toggle, .mobile-overlay { display: none !important; }
+
+    .nav-links {
+        display: flex;
+        gap: 0;
+        height: var(--nav-height);
+    }
+
+    .nav-links > a, 
+    .dropbtn {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        height: 100%;
+        transition: all 0.2s;
+    }
+
+    .dropdown {
+        position: static;
+        height: 100%;
+    }
+
+    .dropdown:hover .dropbtn {
+        background: var(--menu-blue);
+        color: white;
+    }
+
+    /* Mega Menu Styling (Like your first reference) */
+    .mega-menu {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background: var(--menu-blue);
+        padding: 40px 0;
+        color: white;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .dropdown:hover .mega-menu {
+        display: block;
+    }
+
+    .mega-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    .mega-col h3 {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        padding-bottom: 8px;
+    }
+
+    .cat-img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    .link-list { display: flex; flex-direction: column; gap: 8px; }
+    .link-list a { color: white; text-decoration: none; font-size: 0.9rem; opacity: 0.9; }
+    .link-list a:hover { text-decoration: underline; opacity: 1; }
 }
 
-.mobile-overlay.active {
-    display: flex;
+/* 4. MOBILE OVERLAY (iPhone 12 POV) */
+@media (max-width: 992px) {
+    /* Hide PC Nav Links */
+    .nav-links { display: none; }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--coway-gray);
+    }
+
+    .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        z-index: 2000;
+        display: none; /* Toggled by JS */
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        overflow-y: auto;
+    }
+
+    .mobile-overlay.active {
+        display: flex;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: none;
+        border: none;
+        color: var(--coway-gray);
+        cursor: pointer;
+    }
+
+    .mobile-logo-top {
+        margin-bottom: 40px;
+    }
+
+    .mobile-links-container {
+        text-align: center;
+        padding-bottom: 60px;
+        width: 100%;
+    }
+
+    /* Matches your screenshot colors exactly */
+    .mobile-primary {
+        color: var(--coway-blue);
+        text-decoration: none;
+        font-size: 1.25rem;
+        font-weight: 500;
+        display: block;
+        margin: 25px 0 12px;
+    }
+
+    .mobile-subs {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 5px;
+    }
+
+    .mobile-subs a {
+        color: var(--coway-gray);
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 400;
+    }
 }
 
-.close-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: none;
-    border: none;
-    color: var(--coway-gray);
-    cursor: pointer;
-}
-
-.mobile-logo-top {
-    margin-bottom: 40px;
-}
-
-.mobile-links-container {
+/* 5. PAGE CONTENT (Hero & Cards) */
+.hero {
     text-align: center;
-    padding-bottom: 60px;
+    padding: 60px 0;
 }
 
-/* Big Blue Links */
-.mobile-primary {
-    color: var(--coway-blue);
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 500;
-    display: block;
-    margin: 25px 0 10px;
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
 }
 
-/* Small Gray Links */
-.mobile-subs {
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding-bottom: 80px;
+}
+
+.card {
+    background: #fbfbfd;
+    border-radius: 24px;
+    padding: 30px;
+    transition: transform 0.3s;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+/* 6. FLOATING WHATSAPP */
+.floating-wa {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 999;
 }
 
-.mobile-subs a {
-    color: var(--coway-gray);
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 400;
-}
-
-/* Desktop Fix (Hide overlay/burger on big screens) */
-@media (min-width: 992px) {
-    .menu-toggle { display: none; }
-    /* You can add your PC nav links here later */
-}
+[data-lucide] { width: 20px; height: 20px; }
+.floating-wa [data-lucide] { width: 30px; height: 30px; }
