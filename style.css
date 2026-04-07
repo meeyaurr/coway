@@ -59,7 +59,7 @@ body {
     display: flex;
     align-items: center;
     gap: 30px;
-    height: 100%;
+    height: 100%; /* Important: Link container fills the bar */
 }
 
 .nav-links a {
@@ -80,7 +80,7 @@ body {
 /* MEGA MENU & DROPDOWN FIX */
 .dropdown {
     position: relative;
-    height: 100%;
+    height: 100%; /* Ensures the hover area covers the whole navbar height */
     display: flex;
     align-items: center;
 }
@@ -92,10 +92,12 @@ body {
     cursor: pointer;
 }
 
+/* This is the secret: The menu starts higher up but uses padding 
+   to stay "connected" to the mouse cursor */
 .mega-menu {
     display: none;
     position: absolute;
-    top: 100%; /* Sits exactly at bottom of nav */
+    top: 100%;          /* Starts exactly where the nav ends */
     left: 50%;
     transform: translateX(-50%);
     width: 600px;
@@ -103,21 +105,44 @@ body {
     box-shadow: 0 30px 60px rgba(0,0,0,0.15);
     border-radius: 20px;
     border: 1px solid #eee;
-    padding: 20px;
+    z-index: 999;
     
-    /* THE BRIDGE: Invisible area to prevent closing while moving mouse */
-    padding-top: 35px;
-    margin-top: -15px; 
+    /* THE FIX: We add a large top padding and a negative margin 
+       to 'pull' the menu's hit-box up into the navbar. 
+       This creates a 100% solid bridge. */
+    padding: 20px;
+    padding-top: 40px; 
+    margin-top: -20px; 
 }
 
+/* Keep the menu visible as long as the mouse is over the .dropdown area */
 .dropdown:hover .mega-menu {
     display: block;
-    animation: slideUp 0.3s ease forwards;
+    animation: slideUp 0.2s ease-out forwards;
 }
 
+/* Smooth pop-in animation */
 @keyframes slideUp {
-    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateX(-50%) translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(-50%) translateY(0); 
+    }
+}
+
+/* Ensure the text link doesn't have its own margin pushing things away */
+.dropbtn {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 100%; /* Makes the entire height of the nav clickable/hoverable */
 }
 
 .mega-content {
@@ -126,6 +151,7 @@ body {
     gap: 10px;
 }
 
+/* Individual Item Styles */
 .menu-item {
     display: flex;
     flex-direction: column;
@@ -133,9 +159,12 @@ body {
     padding: 15px;
     border-radius: 12px;
     transition: background 0.2s;
+    text-decoration: none;
 }
 
-.menu-item:hover { background: var(--card-bg); }
+.menu-item:hover {
+    background: var(--card-bg);
+}
 
 .menu-item img {
     height: 70px;
