@@ -1,10 +1,11 @@
 /* ========================================
-   COWAY PREMIUM FULL STYLESHEET
+   COWAY PREMIUM - FULL SCREEN MEGA MENU
    ======================================== */
 
 :root {
-    --primary: #002d5d;       /* Coway Blue */
-    --accent: #25d366;        /* WhatsApp Green */
+    --primary-blue: #002d5d;    /* Corporate Blue */
+    --menu-bg: #7ca4c4;         /* Blue-Gray from your image */
+    --accent: #25d366;          /* WhatsApp Green */
     --text-main: #1d1d1f;
     --text-sub: #86868b;
     --bg: #ffffff;
@@ -23,24 +24,23 @@ body {
     background: var(--bg);
     color: var(--text-main);
     line-height: 1.5;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
-/* NAVIGATION */
+/* 1. NAVIGATION BAR */
 .nav {
     position: sticky;
     top: 0;
     height: var(--nav-height);
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: white;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid #eee;
 }
 
 .nav-content {
@@ -58,141 +58,124 @@ body {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 30px;
-    height: 100%; /* Important: Link container fills the bar */
+    gap: 0; /* Gap handled by individual link padding */
+    height: 100%;
 }
 
-.nav-links a {
+/* Base style for all nav links */
+.nav-links > a, 
+.dropbtn {
     text-decoration: none;
     color: var(--text-main);
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
 }
 
-.nav-btn {
-    background: var(--primary);
-    color: white !important;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-weight: 600 !important;
+.nav-links a:hover {
+    color: var(--menu-bg);
 }
 
-/* MEGA MENU & DROPDOWN FIX */
+/* 2. MEGA MENU LOGIC */
 .dropdown {
-    position: relative;
-    height: 100%; /* Ensures the hover area covers the whole navbar height */
-    display: flex;
-    align-items: center;
+    position: static; /* Forces Mega Menu to be full screen width */
+    height: 100%;
 }
 
-.dropbtn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
+/* Change Products tab color when menu is open */
+.dropdown:hover .dropbtn {
+    background: var(--menu-bg);
+    color: white;
 }
 
-/* This is the secret: The menu starts higher up but uses padding 
-   to stay "connected" to the mouse cursor */
 .mega-menu {
     display: none;
     position: absolute;
-    top: 100%;          /* Starts exactly where the nav ends */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    background: white;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-    border-radius: 20px;
-    border: 1px solid #eee;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    background: var(--menu-bg);
+    padding: 40px 0 60px;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     z-index: 999;
-    
-    /* THE FIX: We add a large top padding and a negative margin 
-       to 'pull' the menu's hit-box up into the navbar. 
-       This creates a 100% solid bridge. */
-    padding: 20px;
-    padding-top: 40px; 
-    margin-top: -20px; 
 }
 
-/* Keep the menu visible as long as the mouse is over the .dropdown area */
+/* Show menu on hover */
 .dropdown:hover .mega-menu {
     display: block;
-    animation: slideUp 0.2s ease-out forwards;
+    animation: fadeIn 0.2s ease-in;
 }
 
-/* Smooth pop-in animation */
-@keyframes slideUp {
-    from { 
-        opacity: 0; 
-        transform: translateX(-50%) translateY(10px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateX(-50%) translateY(0); 
-    }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Ensure the text link doesn't have its own margin pushing things away */
-.dropbtn {
-    text-decoration: none;
-    color: var(--text-main);
-    font-size: 0.9rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    height: 100%; /* Makes the entire height of the nav clickable/hoverable */
-}
-
-.mega-content {
+/* 3. MEGA MENU CONTENT (4 COLUMNS) */
+.mega-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.mega-col h3 {
+    font-size: 1rem;
+    margin: 15px 0 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.cat-img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #eee; /* Placeholder color */
+}
+
+.link-list {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
-/* Individual Item Styles */
-.menu-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    border-radius: 12px;
-    transition: background 0.2s;
+.link-list a {
+    color: white;
     text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: none; /* Product names aren't all caps */
+    padding: 0;
+    opacity: 0.9;
 }
 
-.menu-item:hover {
-    background: var(--card-bg);
+.link-list a:hover {
+    opacity: 1;
+    text-decoration: underline;
 }
 
-.menu-item img {
-    height: 70px;
-    margin-bottom: 8px;
-    object-fit: contain;
-}
-
-.menu-item span {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--primary);
-}
-
-/* HERO SECTION */
+/* 4. HERO SECTION */
 .hero {
     text-align: center;
-    padding: 80px 24px 40px;
+    padding: 80px 0 40px;
 }
 
 .badge {
     display: inline-block;
     background: #eef5ff;
-    color: var(--primary);
+    color: var(--primary-blue);
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 1px;
     margin-bottom: 20px;
 }
 
@@ -200,48 +183,31 @@ body {
     font-size: 3.5rem;
     font-weight: 700;
     line-height: 1.1;
-    margin-bottom: 15px;
 }
 
-.hero-subtext {
-    color: var(--text-sub);
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* PRODUCT GRID */
+/* 5. MAIN PRODUCT CARDS */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    padding-bottom: 80px;
+    padding-bottom: 100px;
 }
 
 .card {
     background: var(--card-bg);
-    border-radius: 28px;
+    border-radius: 24px;
     padding: 40px;
     transition: all 0.4s ease;
 }
 
 .card:hover {
-    background: #ffffff;
+    background: white;
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-}
-
-.card-tag {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.75rem;
-    color: var(--text-sub);
-    margin-bottom: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
 .img-container {
-    height: 250px;
+    height: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -256,35 +222,22 @@ body {
 .price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--primary-blue);
     margin-bottom: 20px;
-}
-
-.price span { font-size: 0.9rem; font-weight: 400; color: var(--text-sub); }
-
-.specs { list-style: none; margin-bottom: 30px; }
-
-.specs li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
-    color: var(--text-sub);
-    margin-bottom: 10px;
 }
 
 .btn-primary {
     display: block;
-    background: var(--primary);
+    background: var(--primary-blue);
     color: white;
     text-align: center;
     text-decoration: none;
     padding: 16px;
-    border-radius: 14px;
+    border-radius: 12px;
     font-weight: 600;
 }
 
-/* FLOATING WHATSAPP */
+/* 6. FLOATING WHATSAPP */
 .floating-wa {
     position: fixed;
     bottom: 30px;
@@ -297,18 +250,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-    z-index: 10001;
-    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    z-index: 1100;
 }
 
-/* ICONS */
-[data-lucide] { width: 18px; height: 18px; }
-.floating-wa [data-lucide] { width: 28px; height: 28px; }
-
-/* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem; }
-    .nav-links { display: none; } /* Standard for quick simple landing pages */
-    .product-grid { grid-template-columns: 1fr; }
+/* MOBILE FIX */
+@media (max-width: 992px) {
+    .nav-links > a:not(.nav-btn), .dropdown {
+        display: none; /* Hides complex menu on small tablets/phones */
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
 }
