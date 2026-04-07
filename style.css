@@ -1,13 +1,14 @@
 /* ========================================
-   COWAY PREMIUM FULL STYLESHEET (V3)
+   COWAY PREMIUM - FULL UNIFIED CSS (V5)
    ======================================== */
 
 :root {
-    --primary: #002d5d;       /* Coway Corporate Blue */
-    --accent: #25d366;        /* WhatsApp Green */
-    --menu-blue: #7ca4c4;     /* Official blue-gray from image */
-    --text-main: #1d1d1f;     
-    --text-sub: #86868b;      
+    --primary: #002d5d;       /* Corporate Blue */
+    --coway-blue: #00b0ea;    /* Official Light Blue (Mobile) */
+    --coway-gray: #999999;    /* Official Gray (Mobile) */
+    --menu-blue: #7ca4c4;     /* PC Mega Menu Blue-Gray */
+    --text-main: #1d1d1f;
+    --text-sub: #86868b;
     --bg: #ffffff;
     --card-bg: #fbfbfd;
     --nav-height: 70px;
@@ -34,7 +35,7 @@ body {
     padding: 0 24px;
 }
 
-/* 1. NAVIGATION BAR */
+/* 1. NAVIGATION BAR BASE */
 .nav {
     position: sticky;
     top: 0;
@@ -52,25 +53,11 @@ body {
 }
 
 .nav-logo {
-    height: 28px;
+    height: 22px; /* Adjusted to match official feel */
     width: auto;
 }
 
-/* Hamburger Icon styling */
-.menu-toggle {
-    display: none; /* Hidden on PC */
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--primary);
-}
-
-.menu-toggle i {
-    width: 28px;
-    height: 28px;
-}
-
-/* 2. PC NAVIGATION LINKS */
+/* 2. PC NAVIGATION (Visible on Desktop) */
 .nav-links {
     display: flex;
     gap: 0;
@@ -92,147 +79,152 @@ body {
     transition: all 0.2s ease;
 }
 
-.nav-links > a:hover {
-    color: var(--menu-blue);
-}
-
-.nav-btn {
-    background: var(--primary);
-    color: white !important;
-    margin: 15px 0 15px 20px;
-    height: 40px !important;
-    border-radius: 5px;
-    align-self: center;
-    padding: 0 25px !important;
-}
-
-/* 3. MEGA MENU (PC ONLY) */
-.dropdown {
-    position: static; 
-    height: 100%;
-}
-
-.dropdown:hover .dropbtn {
-    background: var(--menu-blue);
-    color: white;
-}
-
-.mega-menu {
-    display: none;
-    position: absolute;
-    top: var(--nav-height);
-    left: 0;
-    width: 100%;
-    background: var(--menu-blue);
-    padding: 40px 0;
-    color: white;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    z-index: 999;
-}
-
-/* Keep menu open on PC hover */
-.dropdown:hover .mega-menu {
-    display: block;
-}
-
-.mega-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-}
-
-.mega-col h3 {
-    font-size: 1rem;
-    margin: 15px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    padding-bottom: 8px;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.cat-img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.link-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.link-list a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
-    opacity: 0.85;
-}
-
-.link-list a:hover {
-    opacity: 1;
-    text-decoration: underline;
-}
-
-/* 4. MOBILE NAVIGATION LOGIC (iPhone 12 Fix) */
-@media (max-width: 992px) {
-    .menu-toggle {
-        display: block; /* Show burger on mobile */
+/* Desktop Mega Menu Logic */
+@media (min-width: 993px) {
+    .dropdown {
+        position: static; 
+        height: 100%;
     }
 
-    .nav-links {
-        display: none; /* Hidden until clicked */
-        flex-direction: column;
+    .dropdown:hover .dropbtn {
+        background: var(--menu-blue);
+        color: white;
+    }
+
+    .mega-menu {
+        display: none;
         position: absolute;
         top: var(--nav-height);
         left: 0;
         width: 100%;
-        background: white;
-        padding: 20px;
-        border-bottom: 1px solid #eee;
-        height: auto;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        background: var(--menu-blue);
+        padding: 40px 0;
+        color: white;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        z-index: 999;
     }
 
-    /* Shown when script adds 'active' class */
-    .nav-links.active {
+    .dropdown:hover .mega-menu {
+        display: block;
+    }
+
+    .mega-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    .mega-col h3 {
+        font-size: 1rem;
+        margin: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        padding-bottom: 8px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .cat-img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+    .link-list { display: flex; flex-direction: column; gap: 8px; }
+    .link-list a { color: white; text-decoration: none; font-size: 0.9rem; opacity: 0.85; }
+    .link-list a:hover { opacity: 1; text-decoration: underline; }
+}
+
+/* 3. MOBILE NAVIGATION (iPhone 12 Exact Match) */
+.menu-toggle, .mobile-overlay { display: none; }
+
+@media (max-width: 992px) {
+    /* Hide standard PC links */
+    .nav-links { display: none !important; }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--coway-gray);
+    }
+
+    /* Full-screen Overlay */
+    .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        z-index: 2000;
+        display: none; /* Toggled via JS */
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        overflow-y: auto;
+    }
+
+    .mobile-overlay.active {
         display: flex;
     }
 
-    .nav-links > a, .dropdown {
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: none;
+        border: none;
+        color: var(--coway-gray);
+        cursor: pointer;
+    }
+
+    .mobile-logo-center {
+        margin-bottom: 40px;
+    }
+
+    .mobile-links-wrapper {
+        text-align: center;
+        padding-bottom: 60px;
         width: 100%;
-        height: 60px; /* Taller touch target */
-        padding: 0;
-        border-bottom: 1px solid #f5f5f5;
-        justify-content: flex-start;
     }
 
-    .dropbtn {
-        width: 100%;
-        justify-content: space-between;
-        padding: 0;
+    /* Primary Light Blue Links (Products, Service, etc.) */
+    .m-blue {
+        color: var(--coway-blue);
+        text-decoration: none;
+        font-size: 1.25rem;
+        font-weight: 500;
+        display: block;
+        margin: 25px 0 10px;
     }
 
-    /* Hide the complex mega menu on mobile to avoid clutter */
-    .mega-menu {
-        display: none !important; 
+    /* Secondary Gray Links (Water Purifier, Air Purifier, etc.) */
+    .m-subs {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
     }
 
-    .nav-btn {
-        margin: 20px 0 10px 0;
-        width: 100%;
-        justify-content: center;
+    .m-subs a {
+        color: var(--coway-gray);
+        text-decoration: none;
+        font-size: 1.15rem;
+        font-weight: 400;
     }
 
-    .hero h1 { font-size: 2.2rem; }
+    /* Hide PC-specific components */
+    .mega-menu { display: none !important; }
 }
 
-/* 5. CONTENT SECTIONS */
+/* 4. CONTENT SECTIONS */
 .hero {
     text-align: center;
     padding: 80px 0 40px;
 }
+
+.hero h1 { font-size: 3.5rem; font-weight: 700; }
 
 .badge {
     display: inline-block;
@@ -294,7 +286,7 @@ body {
     font-weight: 600;
 }
 
-/* 6. FLOATING ELEMENTS */
+/* 5. FLOATING WHATSAPP */
 .floating-wa {
     position: fixed;
     bottom: 20px;
@@ -309,7 +301,12 @@ body {
     justify-content: center;
     box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
     z-index: 10001;
+    text-decoration: none;
 }
 
 [data-lucide] { width: 18px; height: 18px; }
 .floating-wa [data-lucide] { width: 30px; height: 30px; }
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+}
