@@ -3,50 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coway | Better Life, Happy Home</title>
+    <title>Coway | Premium Home Wellness</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <a href="https://wa.me/60123456789" class="floating-wa" target="_blank">
+        <i data-lucide="message-circle"></i>
+    </a>
+
     <nav class="nav">
-        <div class="container">
-            <span class="logo">COWAY</span>
+    <div class="container nav-content">
+        <a href="index.html" class="logo-link">
+            <img src="img/logo.png" alt="Coway Logo" class="nav-logo">
+        </a>
+        
+        <div class="nav-links">
+            <a href="#">Products</a>
+            <a href="#">Service</a>
+            <a href="https://wa.me/60123456789" class="nav-btn">Contact Agent</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <main class="container">
-        <header class="header">
-            <p class="subtitle">PREMIUM QUALITY</p>
-            <h1>Pure water for your home.</h1>
+        <header class="hero">
+            <span class="badge">No. 1 in Malaysia</span>
+            <h1>The best care for <br>your family.</h1>
         </header>
 
-        <section class="grid">
+        <section class="product-grid">
+            
             <div class="card">
-                <div class="img-box">
+                <div class="icon-tag"><i data-lucide="droplets"></i> Water</div>
+                <div class="img-container">
                     <img src="https://www.coway.com.my/media/catalog/product/n/e/neo_plus_1.png" alt="Neo Plus">
                 </div>
-                <div class="content">
+                <div class="info">
                     <h3>Neo Plus</h3>
-                    <p class="spec">Water Purifier</p>
-                    <p class="price">RM 65.00 <span>/ month</span></p>
-                    <a href="https://wa.me/60123456789" class="btn">Enquire Now</a>
+                    <p class="price">RM 65<span>/mo</span></p>
+                    <ul class="specs">
+                        <li><i data-lucide="check"></i> 3 Temperatures</li>
+                        <li><i data-lucide="check"></i> 5.8L Tank</li>
+                    </ul>
+                    <a href="https://wa.me/60123456789" class="btn-primary">Order Now</a>
                 </div>
             </div>
 
             <div class="card">
-                <div class="img-box">
+                <div class="icon-tag"><i data-lucide="wind"></i> Air</div>
+                <div class="img-container">
                     <img src="https://www.coway.com.my/media/catalog/product/s/t/storm_2_1.png" alt="Storm 2">
                 </div>
-                <div class="content">
+                <div class="info">
                     <h3>Storm 2</h3>
-                    <p class="spec">Air Purifier</p>
-                    <p class="price">RM 70.00 <span>/ month</span></p>
-                    <a href="https://wa.me/60123456789" class="btn">Enquire Now</a>
+                    <p class="price">RM 70<span>/mo</span></p>
+                    <ul class="specs">
+                        <li><i data-lucide="check"></i> HEPA Filter</li>
+                        <li><i data-lucide="check"></i> Smart Mode</li>
+                    </ul>
+                    <a href="https://wa.me/60123456789" class="btn-primary">Order Now</a>
                 </div>
             </div>
+
         </section>
     </main>
 
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons(); // This line triggers the icons to show up
+    </script>
 </body>
 </html>
