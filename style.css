@@ -1,5 +1,5 @@
 /* ========================================
-   COWAY PREMIUM - FULL UNIFIED CSS (V5)
+   COWAY PREMIUM - THE "EVERYTHING" CSS (V6)
    ======================================== */
 
 :root {
@@ -8,13 +8,12 @@
     --coway-gray: #999999;    /* Official Gray (Mobile) */
     --menu-blue: #7ca4c4;     /* PC Mega Menu Blue-Gray */
     --text-main: #1d1d1f;
-    --text-sub: #86868b;
     --bg: #ffffff;
     --card-bg: #fbfbfd;
     --nav-height: 70px;
 }
 
-/* Base Reset */
+/* 1. BASE RESET */
 * {
     margin: 0;
     padding: 0;
@@ -29,13 +28,7 @@ body {
     overflow-x: hidden;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-/* 1. NAVIGATION BAR BASE */
+/* 2. NAVIGATION BAR STRUCTURE */
 .nav {
     position: sticky;
     top: 0;
@@ -46,6 +39,9 @@ body {
 }
 
 .nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,34 +49,38 @@ body {
 }
 
 .nav-logo {
-    height: 22px; /* Adjusted to match official feel */
+    height: 22px;
     width: auto;
 }
 
-/* 2. PC NAVIGATION (Visible on Desktop) */
-.nav-links {
-    display: flex;
-    gap: 0;
-    height: 100%;
-}
-
-.nav-links > a, 
-.dropbtn {
-    text-decoration: none;
-    color: var(--text-main);
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    height: 100%;
-    transition: all 0.2s ease;
-}
-
-/* Desktop Mega Menu Logic */
+/* 3. DESKTOP LAYOUT (PC) - ONLY for screens > 992px */
 @media (min-width: 993px) {
+    /* Hide Mobile specific buttons */
+    .menu-toggle, .mobile-overlay {
+        display: none !important;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 0;
+        height: 100%;
+    }
+
+    .nav-links > a, 
+    .dropbtn {
+        text-decoration: none;
+        color: var(--text-main);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        height: 100%;
+        transition: all 0.2s ease;
+    }
+
     .dropdown {
         position: static; 
         height: 100%;
@@ -91,6 +91,7 @@ body {
         color: white;
     }
 
+    /* Mega Menu (Desktop version) */
     .mega-menu {
         display: none;
         position: absolute;
@@ -101,7 +102,6 @@ body {
         padding: 40px 0;
         color: white;
         box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        z-index: 999;
     }
 
     .dropdown:hover .mega-menu {
@@ -112,22 +112,17 @@ body {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
     }
 
     .mega-col h3 {
         font-size: 1rem;
-        margin: 15px 0;
+        margin-bottom: 15px;
         border-bottom: 1px solid rgba(255,255,255,0.3);
         padding-bottom: 8px;
         text-transform: uppercase;
-        font-weight: 600;
-    }
-
-    .cat-img {
-        width: 100%;
-        height: 140px;
-        object-fit: cover;
-        border-radius: 4px;
     }
 
     .link-list { display: flex; flex-direction: column; gap: 8px; }
@@ -135,12 +130,12 @@ body {
     .link-list a:hover { opacity: 1; text-decoration: underline; }
 }
 
-/* 3. MOBILE NAVIGATION (iPhone 12 Exact Match) */
-.menu-toggle, .mobile-overlay { display: none; }
-
+/* 4. MOBILE LAYOUT (iPhone 12) - ONLY for screens <= 992px */
 @media (max-width: 992px) {
-    /* Hide standard PC links */
-    .nav-links { display: none !important; }
+    /* Hide the Desktop Nav Links entirely */
+    .nav-links {
+        display: none !important;
+    }
 
     .menu-toggle {
         display: block;
@@ -150,7 +145,7 @@ body {
         color: var(--coway-gray);
     }
 
-    /* Full-screen Overlay */
+    /* The Mobile Full-Screen Overlay */
     .mobile-overlay {
         position: fixed;
         top: 0;
@@ -159,7 +154,7 @@ body {
         height: 100vh;
         background: white;
         z-index: 2000;
-        display: none; /* Toggled via JS */
+        display: none; /* Controlled by JS */
         flex-direction: column;
         align-items: center;
         padding-top: 20px;
@@ -190,7 +185,7 @@ body {
         width: 100%;
     }
 
-    /* Primary Light Blue Links (Products, Service, etc.) */
+    /* Mobile Text Styling */
     .m-blue {
         color: var(--coway-blue);
         text-decoration: none;
@@ -200,7 +195,6 @@ body {
         margin: 25px 0 10px;
     }
 
-    /* Secondary Gray Links (Water Purifier, Air Purifier, etc.) */
     .m-subs {
         display: flex;
         flex-direction: column;
@@ -213,36 +207,16 @@ body {
         font-size: 1.15rem;
         font-weight: 400;
     }
-
-    /* Hide PC-specific components */
-    .mega-menu { display: none !important; }
 }
 
-/* 4. CONTENT SECTIONS */
-.hero {
-    text-align: center;
-    padding: 80px 0 40px;
-}
-
+/* 5. CONTENT & CARDS (Standard for both) */
+.hero { text-align: center; padding: 80px 0 40px; }
 .hero h1 { font-size: 3.5rem; font-weight: 700; }
-
-.badge {
-    display: inline-block;
-    background: #eef5ff;
-    color: var(--primary);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
 
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    padding-bottom: 100px;
 }
 
 .card {
@@ -253,45 +227,15 @@ body {
 }
 
 .card:hover {
-    background: #ffffff;
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.06);
 }
 
-.img-container {
-    height: 220px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.img-container img { max-height: 100%; width: auto; }
-
-.price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin: 10px 0 20px;
-}
-
-.btn-primary {
-    display: block;
-    background: var(--primary);
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    padding: 16px;
-    border-radius: 12px;
-    font-weight: 600;
-}
-
-/* 5. FLOATING WHATSAPP */
 .floating-wa {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: var(--accent);
+    background: #25d366;
     color: white;
     width: 60px;
     height: 60px;
@@ -299,13 +243,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
     z-index: 10001;
     text-decoration: none;
 }
-
-[data-lucide] { width: 18px; height: 18px; }
-.floating-wa [data-lucide] { width: 30px; height: 30px; }
 
 @media (max-width: 768px) {
     .hero h1 { font-size: 2.2rem; }
