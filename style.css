@@ -1,5 +1,5 @@
 /* ========================================
-   COWAY PREMIUM - FULL UNIFIED CSS (V5)
+   COWAY PREMIUM - MASTER INTEGRATED CSS
    ======================================== */
 
 :root {
@@ -12,9 +12,10 @@
     --bg: #ffffff;
     --card-bg: #fbfbfd;
     --nav-height: 70px;
+    --accent: #25d366;        /* WhatsApp Green */
 }
 
-/* Base Reset */
+/* --- Base Reset --- */
 * {
     margin: 0;
     padding: 0;
@@ -35,7 +36,7 @@ body {
     padding: 0 24px;
 }
 
-/* 1. NAVIGATION BAR BASE */
+/* --- 1. NAVIGATION BAR BASE --- */
 .nav {
     position: sticky;
     top: 0;
@@ -50,41 +51,57 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 .nav-logo {
-    height: 22px; /* Adjusted to match official feel */
+    height: 22px;
     width: auto;
 }
 
-/* 2. PC NAVIGATION (Visible on Desktop) */
-.nav-links {
-    display: flex;
-    gap: 0;
-    height: 100%;
-}
-
-.nav-links > a, 
-.dropbtn {
-    text-decoration: none;
-    color: var(--text-main);
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    height: 100%;
-    transition: all 0.2s ease;
-}
-
-/* Desktop Mega Menu Logic */
+/* --- 2. PC NAVIGATION (Desktop POV) --- */
 @media (min-width: 993px) {
-    .dropdown {
-        position: static; 
+    /* Hide Mobile UI */
+    .menu-toggle, .mobile-overlay { display: none !important; }
+
+    .nav-links {
+        display: flex;
+        gap: 0;
         height: 100%;
     }
+
+    .nav-links > a, 
+    .dropbtn {
+        text-decoration: none;
+        color: var(--text-main);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        height: 100%;
+        transition: all 0.2s ease;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-btn {
+        background: var(--primary) !important;
+        color: white !important;
+        margin: 15px 0 15px 20px;
+        height: 40px !important;
+        border-radius: 5px;
+        align-self: center;
+        padding: 0 25px !important;
+    }
+
+    /* Mega Menu Logic */
+    .dropdown { position: static; height: 100%; }
 
     .dropdown:hover .dropbtn {
         background: var(--menu-blue);
@@ -104,9 +121,7 @@ body {
         z-index: 999;
     }
 
-    .dropdown:hover .mega-menu {
-        display: block;
-    }
+    .dropdown:hover .mega-menu { display: block; }
 
     .mega-grid {
         display: grid;
@@ -135,11 +150,9 @@ body {
     .link-list a:hover { opacity: 1; text-decoration: underline; }
 }
 
-/* 3. MOBILE NAVIGATION (iPhone 12 Exact Match) */
-.menu-toggle, .mobile-overlay { display: none; }
-
+/* --- 3. MOBILE NAVIGATION (Phone POV) --- */
 @media (max-width: 992px) {
-    /* Hide standard PC links */
+    /* Hide Desktop Links */
     .nav-links { display: none !important; }
 
     .menu-toggle {
@@ -150,7 +163,6 @@ body {
         color: var(--coway-gray);
     }
 
-    /* Full-screen Overlay */
     .mobile-overlay {
         position: fixed;
         top: 0;
@@ -159,16 +171,14 @@ body {
         height: 100vh;
         background: white;
         z-index: 2000;
-        display: none; /* Toggled via JS */
+        display: none; /* Controlled by JS */
         flex-direction: column;
         align-items: center;
         padding-top: 20px;
         overflow-y: auto;
     }
 
-    .mobile-overlay.active {
-        display: flex;
-    }
+    .mobile-overlay.active { display: flex; }
 
     .close-btn {
         position: absolute;
@@ -180,9 +190,7 @@ body {
         cursor: pointer;
     }
 
-    .mobile-logo-center {
-        margin-bottom: 40px;
-    }
+    .mobile-logo-center { margin-bottom: 40px; }
 
     .mobile-links-wrapper {
         text-align: center;
@@ -190,7 +198,6 @@ body {
         width: 100%;
     }
 
-    /* Primary Light Blue Links (Products, Service, etc.) */
     .m-blue {
         color: var(--coway-blue);
         text-decoration: none;
@@ -200,7 +207,6 @@ body {
         margin: 25px 0 10px;
     }
 
-    /* Secondary Gray Links (Water Purifier, Air Purifier, etc.) */
     .m-subs {
         display: flex;
         flex-direction: column;
@@ -213,17 +219,10 @@ body {
         font-size: 1.15rem;
         font-weight: 400;
     }
-
-    /* Hide PC-specific components */
-    .mega-menu { display: none !important; }
 }
 
-/* 4. CONTENT SECTIONS */
-.hero {
-    text-align: center;
-    padding: 80px 0 40px;
-}
-
+/* --- 4. SHARED CONTENT STYLES --- */
+.hero { text-align: center; padding: 80px 0 40px; }
 .hero h1 { font-size: 3.5rem; font-weight: 700; }
 
 .badge {
@@ -286,7 +285,6 @@ body {
     font-weight: 600;
 }
 
-/* 5. FLOATING WHATSAPP */
 .floating-wa {
     position: fixed;
     bottom: 20px;
