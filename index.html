@@ -17,52 +17,45 @@
     </a>
 
     <nav class="nav">
-        <div class="container nav-content">
-            <a href="index.html" class="logo-link">
-                <img src="img/logo.png" alt="Coway Logo" class="nav-logo">
-            </a>
+    <div class="container nav-content">
+        <a href="index.html" class="logo-link">
+            <img src="img/logo.png" alt="Coway Logo" class="nav-logo">
+        </a>
+        
+        <button class="menu-toggle" id="mobile-menu-btn">
+            <i data-lucide="menu"></i>
+        </button>
 
-            <button class="menu-toggle" id="mobile-menu-btn">
-                <i data-lucide="menu"></i>
-            </button>
-
-            <div class="mobile-overlay" id="nav-menu">
-                <button class="close-btn" id="close-btn"><i data-lucide="x"></i></button>
-
-                <div class="mobile-logo-top">
-                    <img src="img/logo.png" alt="Coway" class="nav-logo">
-                </div>
-
-                <div class="mobile-links-container">
-                    <a href="#" class="mobile-primary">CHANGE YOUR LIFE</a>
-
-                    <div class="mobile-group">
-                        <p class="mobile-primary">Products</p>
-                        <div class="mobile-subs">
-                            <a href="#">Water Purifier</a>
-                            <a href="#">Air Purifier</a>
-                            <a href="#">Coway BEREX</a>
-                            <a href="#">Hands-Free Bidet</a>
-                            <a href="#">Air Conditioner</a>
-                            <a href="#">Outdoor</a>
-                            <a href="#">Laundry</a>
+        <div class="nav-links" id="nav-menu">
+            <div class="dropdown">
+                <a href="#" class="dropbtn">PRODUCTS <i data-lucide="chevron-down"></i></a>
+                <div class="mega-menu">
+                    <div class="container mega-grid">
+                        <div class="mega-col">
+                            <img src="https://www.coway.com.my/images/menu/water-purifier.jpg" class="cat-img">
+                            <h3>Water Purifier</h3>
+                            <div class="link-list">
+                                <a href="#">Neo Plus</a>
+                                <a href="#">Villaem 3</a>
+                            </div>
+                        </div>
+                        <div class="mega-col">
+                            <img src="https://www.coway.com.my/images/menu/air-purifier.jpg" class="cat-img">
+                            <h3>Air Purifier</h3>
+                            <div class="link-list">
+                                <a href="#">Storm 2</a>
+                                <a href="#">Lombok 3</a>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="mobile-group">
-                        <p class="mobile-primary">Service</p>
-                        <div class="mobile-subs">
-                            <a href="#">Heart Service</a>
-                            <a href="#">Mattress Care Service</a>
-                        </div>
-                    </div>
-
-                    <a href="#" class="mobile-primary">Trade-In</a>
-                    <a href="#" class="mobile-primary">Happy Water Project</a>
                 </div>
             </div>
+            <a href="#">SERVICE</a>
+            <a href="#">TRADE-IN</a>
+            <a href="https://wa.me/60123456789" class="nav-btn">CONTACT</a>
         </div>
-    </nav>
+    </div>
+</nav>
 
     <main class="container">
         <header class="hero">
@@ -115,17 +108,18 @@
 
 <script>
     const menuBtn = document.getElementById('mobile-menu-btn');
-    const closeBtn = document.getElementById('close-btn');
     const navMenu = document.getElementById('nav-menu');
 
     menuBtn.addEventListener('click', () => {
-        navMenu.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Stop scrolling background
-    });
-
-    closeBtn.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Allow scrolling again
+        navMenu.classList.toggle('active');
+        // Optional: Change icon from menu to 'X' when open
+        const icon = menuBtn.querySelector('i');
+        if (navMenu.classList.contains('active')) {
+            icon.setAttribute('data-lucide', 'x');
+        } else {
+            icon.setAttribute('data-lucide', 'menu');
+        }
+        lucide.createIcons();
     });
 </script>
 
