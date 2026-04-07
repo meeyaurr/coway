@@ -27,32 +27,37 @@
             </button>
 
             <div class="nav-links" id="nav-menu">
-                <div class="dropdown">
-                    <a href="#" class="dropbtn">PRODUCTS <i data-lucide="chevron-down"></i></a>
-                    <div class="mega-menu">
-                        <div class="container mega-grid">
-                            <div class="mega-col">
-                                <img src="https://www.coway.com.my/images/menu/water-purifier.jpg" class="cat-img">
-                                <h3>Water Purifier</h3>
-                                <div class="link-list">
-                                    <a href="#">Neo Plus</a>
-                                    <a href="#">Villaem 3</a>
-                                </div>
-                            </div>
-                            <div class="mega-col">
-                                <img src="https://www.coway.com.my/images/menu/air-purifier.jpg" class="cat-img">
-                                <h3>Air Purifier</h3>
-                                <div class="link-list">
-                                    <a href="#">Storm 2</a>
-                                    <a href="#">Lombok 3</a>
-                                </div>
-                            </div>
-                        </div>
+                <button class="close-menu" id="close-btn"><i data-lucide="x"></i></button>
+
+                <div class="mobile-logo-space">
+                    <img src="img/logo.png" alt="Coway" class="nav-logo">
+                </div>
+
+                <a href="#" class="main-link">CHANGE YOUR LIFE</a>
+
+                <div class="mobile-group">
+                    <a href="#" class="main-link active-link">Products</a>
+                    <div class="sub-links">
+                        <a href="#">Water Purifier</a>
+                        <a href="#">Air Purifier</a>
+                        <a href="#">Coway BEREX</a>
+                        <a href="#">Hands-Free Bidet</a>
+                        <a href="#">Air Conditioner</a>
+                        <a href="#">Outdoor</a>
+                        <a href="#">Laundry</a>
                     </div>
                 </div>
-                <a href="#">SERVICE</a>
-                <a href="#">TRADE-IN</a>
-                <a href="https://wa.me/60123456789" class="nav-btn">CONTACT</a>
+
+                <div class="mobile-group">
+                    <a href="#" class="main-link active-link">Service</a>
+                    <div class="sub-links">
+                        <a href="#">Heart Service</a>
+                        <a href="#">Mattress Care Service</a>
+                    </div>
+                </div>
+
+                <a href="#" class="main-link active-link">Trade-In</a>
+                <a href="#" class="main-link active-link">Happy Water Project</a>
             </div>
         </div>
     </nav>
@@ -108,18 +113,19 @@
 
 <script>
     const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-btn');
     const navMenu = document.getElementById('nav-menu');
 
+    // Open Menu
     menuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        // Optional: Change icon from menu to 'X' when open
-        const icon = menuBtn.querySelector('i');
-        if (navMenu.classList.contains('active')) {
-            icon.setAttribute('data-lucide', 'x');
-        } else {
-            icon.setAttribute('data-lucide', 'menu');
-        }
-        lucide.createIcons();
+        navMenu.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling background
+    });
+
+    // Close Menu
+    closeBtn.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Allow scrolling again
     });
 </script>
 
