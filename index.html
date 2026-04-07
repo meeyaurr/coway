@@ -26,38 +26,40 @@
                 <i data-lucide="menu"></i>
             </button>
 
-            <div class="nav-links" id="nav-menu">
-                <button class="close-menu" id="close-btn"><i data-lucide="x"></i></button>
+            <div class="mobile-overlay" id="nav-menu">
+                <button class="close-btn" id="close-btn"><i data-lucide="x"></i></button>
 
-                <div class="mobile-logo-space">
+                <div class="mobile-logo-top">
                     <img src="img/logo.png" alt="Coway" class="nav-logo">
                 </div>
 
-                <a href="#" class="main-link">CHANGE YOUR LIFE</a>
+                <div class="mobile-links-container">
+                    <a href="#" class="mobile-primary">CHANGE YOUR LIFE</a>
 
-                <div class="mobile-group">
-                    <a href="#" class="main-link active-link">Products</a>
-                    <div class="sub-links">
-                        <a href="#">Water Purifier</a>
-                        <a href="#">Air Purifier</a>
-                        <a href="#">Coway BEREX</a>
-                        <a href="#">Hands-Free Bidet</a>
-                        <a href="#">Air Conditioner</a>
-                        <a href="#">Outdoor</a>
-                        <a href="#">Laundry</a>
+                    <div class="mobile-group">
+                        <p class="mobile-primary">Products</p>
+                        <div class="mobile-subs">
+                            <a href="#">Water Purifier</a>
+                            <a href="#">Air Purifier</a>
+                            <a href="#">Coway BEREX</a>
+                            <a href="#">Hands-Free Bidet</a>
+                            <a href="#">Air Conditioner</a>
+                            <a href="#">Outdoor</a>
+                            <a href="#">Laundry</a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="mobile-group">
-                    <a href="#" class="main-link active-link">Service</a>
-                    <div class="sub-links">
-                        <a href="#">Heart Service</a>
-                        <a href="#">Mattress Care Service</a>
+                    <div class="mobile-group">
+                        <p class="mobile-primary">Service</p>
+                        <div class="mobile-subs">
+                            <a href="#">Heart Service</a>
+                            <a href="#">Mattress Care Service</a>
+                        </div>
                     </div>
-                </div>
 
-                <a href="#" class="main-link active-link">Trade-In</a>
-                <a href="#" class="main-link active-link">Happy Water Project</a>
+                    <a href="#" class="mobile-primary">Trade-In</a>
+                    <a href="#" class="mobile-primary">Happy Water Project</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -116,13 +118,11 @@
     const closeBtn = document.getElementById('close-btn');
     const navMenu = document.getElementById('nav-menu');
 
-    // Open Menu
     menuBtn.addEventListener('click', () => {
         navMenu.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling background
+        document.body.style.overflow = 'hidden'; // Stop scrolling background
     });
 
-    // Close Menu
     closeBtn.addEventListener('click', () => {
         navMenu.classList.remove('active');
         document.body.style.overflow = 'auto'; // Allow scrolling again
