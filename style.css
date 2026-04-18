@@ -36,6 +36,45 @@ body {
     padding: 0 24px;
 }
 
+.color-selection {
+    margin: 15px 0;
+}
+
+.color-selection p {
+    font-size: 0.75rem;
+    color: var(--text-sub);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.swatches {
+    display: flex;
+    gap: 10px;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.2s ease;
+    border: 1px solid #ddd; /* Subtle border for all */
+}
+
+.circle:hover {
+    transform: scale(1.2);
+}
+
+.circle.white {
+    background-color: #ffffff;
+}
+
+.circle.black {
+    background-color: #000000;
+}
+
 /* --- 1. NAVIGATION BAR BASE --- */
 .nav {
     position: sticky;
