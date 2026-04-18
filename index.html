@@ -150,34 +150,49 @@
 
             <div class="slider-window" id="slider-window">
                 <div class="slider-track" id="slider-track">
-                    <div class="berex-card clone"><img src="img/berex3.jpg">
+                    <div class="berex-card clone"><img src="img/berex6.jpg">
+                        <h3>MASSAGE BED</h3>
+                    </div>
+                    <div class="berex-card clone"><img src="img/berex7.jpg">
+                        <h3>MINE</h3>
+                    </div>
+                    <div class="berex-card clone"><img src="img/berex8.jpg">
                         <h3>PEBBLE</h3>
                     </div>
 
                     <div class="berex-card"><img src="img/berex1.jpg">
-                        <h3>MASSAGE BED</h3>
+                        <h3>1</h3>
                     </div>
                     <div class="berex-card"><img src="img/berex2.jpg">
-                        <h3>MINE</h3>
+                        <h3>2</h3>
+                    </div>
+                    <div class="berex-card"><img src="img/berex3.jpg">
+                        <h3>3</h3>
                     </div>
                     <div class="berex-card"><img src="img/berex4.jpg">
-                        <h3>PEBBLE</h3>
+                        <h3>4</h3>
                     </div>
                     <div class="berex-card"><img src="img/berex5.jpg">
-                        <h3>PEBBLE</h3>
+                        <h3>5</h3>
                     </div>
                     <div class="berex-card"><img src="img/berex6.jpg">
-                        <h3>MASSAGE BED</h3>
+                        <h3>6</h3>
                     </div>
                     <div class="berex-card"><img src="img/berex7.jpg">
-                        <h3>MINE</h3>
+                        <h3>7</h3>
                     </div>
                     <div class="berex-card"><img src="img/berex8.jpg">
-                        <h3>PEBBLE</h3>
+                        <h3>8</h3>
                     </div>
 
-                    <div class="berex-card clone"><img src="img/berex9.jpg">
-                        <h3>MASSAGE BED</h3>
+                    <div class="berex-card clone"><img src="img/berex1.jpg">
+                        <h3>1</h3>
+                    </div>
+                    <div class="berex-card clone"><img src="img/berex2.jpg">
+                        <h3>2</h3>
+                    </div>
+                    <div class="berex-card clone"><img src="img/berex3.jpg">
+                        <h3>3</h3>
                     </div>
                 </div>
             </div>
@@ -239,85 +254,97 @@
             });
         });
 
-        const sliderWindow = document.getElementById('slider-window');
         const track = document.getElementById('slider-track');
-        const slides = document.querySelectorAll('.berex-card');
+        const sliderWindow = document.getElementById('slider-window');
         const nextBtn = document.getElementById('slide-next');
         const prevBtn = document.getElementById('slide-prev');
 
-        let isDragging = false, startX, scrollLeft, currentIndex = 1;
-        const cardWidth = slides[0].offsetWidth + 20; // card + gap
+        let isDragging = false, startX, currentTranslate = 0, prevTranslate = 0;
+        let currentIndex = 3; // We start at 3 because of the 3 clones at the front
+        const realItemsCount = 8;
+        const gap = 15;
 
-        // Initialize position to the first real slide (skipping the clone)
-        track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+        const getCardWidth = () => document.querySelector('.berex-card').offsetWidth + gap;
 
-        // INFINITE LOGIC: Check if we are on a clone and snap back
+        // Initial position: move past the 3 clones to the first real image
+        const setPositionByIndex = () => {
+            currentTranslate = currentIndex * -getCardWidth();
+            prevTranslate = currentTranslate;
+            setSliderPosition();
+        };
+
+        const setSliderPosition = () => {
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        };
+
+        // Check for the "Infinite Jump"
         track.addEventListener('transitionend', () => {
-            if (slides[currentIndex].classList.contains('clone')) {
+            const cardWidth = getCardWidth();
+            if (currentIndex >= realItemsCount + 3) {
                 track.classList.add('no-transition');
-                currentIndex = slides[currentIndex].innerHTML.includes('MASSAGE BED') ? 1 : slides.length - 2;
-                track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
-                setTimeout(() => track.classList.remove('no-transition'), 10);
+                currentIndex = 3;
+                setPositionByIndex();
             }
+            if (currentIndex <= 0) {
+                track.classList.add('no-transition');
+                currentIndex = realItemsCount;
+                setPositionByIndex();
+            }
+            // Small delay to turn transitions back on
+            setTimeout(() => track.classList.remove('no-transition'), 10);
         });
 
-        // DRAG LOGIC
+        // DRAG LOGIC (Smooth)
         const startDrag = (e) => {
             isDragging = true;
-            startX = (e.pageX || e.touches[0].pageX) - track.offsetLeft;
+            startX = e.type.includes('touch') ? e.touches[0].pageX : e.pageX;
             track.classList.add('no-transition');
         };
 
         const moveDrag = (e) => {
             if (!isDragging) return;
-            e.preventDefault();
-            const x = (e.pageX || e.touches[0].pageX) - track.offsetLeft;
-            const walk = x - startX;
-            track.style.transform = `translateX(${-currentIndex * cardWidth + walk}px)`;
+            const currentX = e.type.includes('touch') ? e.touches[0].pageX : e.pageX;
+            const currentDiff = currentX - startX;
+            currentTranslate = prevTranslate + currentDiff;
+            setSliderPosition();
         };
 
         const endDrag = (e) => {
-            if (!isDragging) return;
             isDragging = false;
             track.classList.remove('no-transition');
+            const movedBy = currentTranslate - prevTranslate;
 
-            // Determine if drag was far enough to change slide
-            const endX = (e.pageX || e.changedTouches[0].pageX) - track.offsetLeft;
-            if (startX - endX > 50) currentIndex++;
-            else if (startX - endX < -50) currentIndex--;
+            // Snap to next/prev if dragged more than 100px
+            if (movedBy < -100) currentIndex++;
+            else if (movedBy > 100) currentIndex--;
 
-            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            setPositionByIndex();
         };
 
-        // Event Listeners for Mouse and Touch
+        // Button Clicks
+        nextBtn.addEventListener('click', () => {
+            if (track.classList.contains('no-transition')) return;
+            currentIndex++;
+            setPositionByIndex();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (track.classList.contains('no-transition')) return;
+            currentIndex--;
+            setPositionByIndex();
+        });
+
+        // Attach events
         sliderWindow.addEventListener('mousedown', startDrag);
         sliderWindow.addEventListener('mousemove', moveDrag);
         sliderWindow.addEventListener('mouseup', endDrag);
         sliderWindow.addEventListener('mouseleave', endDrag);
-
         sliderWindow.addEventListener('touchstart', startDrag);
         sliderWindow.addEventListener('touchmove', moveDrag);
         sliderWindow.addEventListener('touchend', endDrag);
 
-        // Button Clicks
-        nextBtn.addEventListener('click', () => {
-            currentIndex++;
-            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-        });
-
-        prevBtn.addEventListener('click', () => {
-            currentIndex--;
-            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-        });
-
-        // Prevent the browser from dragging the actual image file
-        const sliderImages = document.querySelectorAll('.berex-card img');
-
-        sliderImages.forEach(img => {
-            img.addEventListener('dragstart', (e) => {
-                e.preventDefault();
-            });
-        });
+        // Run init
+        setPositionByIndex();
     </script>
 </body>
 
