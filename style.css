@@ -24,10 +24,12 @@
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--text-main);
-    line-height: 1.5;
-    overflow-x: hidden;
+    background-color: #ffffff;
+    /* This creates soft blue "glows" in the corners */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 176, 234, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(0, 45, 93, 0.03) 0px, transparent 50%);
+    background-attachment: fixed; /* Keeps the gradient still while you scroll */
 }
 
 .container {
@@ -293,10 +295,9 @@ body {
 }
 
 .card {
-    background: var(--card-bg);
-    border-radius: 28px;
-    padding: 40px;
-    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .card:hover {
