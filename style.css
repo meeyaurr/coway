@@ -55,24 +55,32 @@
 .hero {
     position: relative;
     text-align: center;
-    padding: 140px 0 100px;
-    /* 1. Set background to transparent so there's no 'box' visible */
+    padding: 140px 0 120px;
     background-color: transparent;
     
-    /* 2. Use a simpler radial gradient that fades to transparent, not white */
+    /* The glow */
     background-image: radial-gradient(
         circle at center, 
-        rgba(0, 176, 234, 0.12) 0%, 
-        transparent 70%
+        rgba(0, 176, 234, 0.15) 0%, 
+        transparent 75%
     );
-    
-    /* 3. Remove any potential borders or shadows that might show the box edge */
-    border: none;
-    box-shadow: none;
-    
-    /* 4. Ensure it blends with the sections above and below */
-    margin-top: -1px;
-    margin-bottom: -1px;
+
+    /* THE FIX: This fades the entire hero box out at the top and bottom */
+    mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        black 15%, 
+        black 85%, 
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        black 15%, 
+        black 85%, 
+        transparent 100%
+    );
+
+    /* Ensure no weird spacing */
+    margin-bottom: -20px; 
 }
 
 .hero h1 {
