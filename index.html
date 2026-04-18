@@ -134,14 +134,49 @@
                 <div class="mini-icon"><i data-lucide="wind"></i></div>
                 <span>Air</span>
             </div>
-            <div class="mini-card">
+            <!-- <div class="mini-card">
                 <div class="mini-icon"><i data-lucide="bed"></i></div>
                 <span>Sleep</span>
             </div>
             <div class="mini-card">
                 <div class="mini-icon"><i data-lucide="sparkles"></i></div>
                 <span>Bidet</span>
+            </div> -->
+        </section>
+
+        <section class="berex-slider">
+            <button class="slider-arrow prev" id="slide-prev"><i data-lucide="chevron-left"></i></button>
+
+            <div class="slider-window">
+                <div class="slider-track" id="slider-track">
+                    <div class="berex-card">
+                        <img src="img/massage-bed.jpg" alt="Massage Bed">
+                        <div class="card-overlay">
+                            <p>Latest Products</p>
+                            <h3>MASSAGE BED</h3>
+                            <span>MB-B01 | MB-C01</span>
+                        </div>
+                    </div>
+                    <div class="berex-card">
+                        <img src="img/mine.jpg" alt="Mine">
+                        <div class="card-overlay">
+                            <p>Latest Products</p>
+                            <h3>MINE</h3>
+                            <span>MC-B02</span>
+                        </div>
+                    </div>
+                    <div class="berex-card">
+                        <img src="img/pebble.jpg" alt="Pebble">
+                        <div class="card-overlay">
+                            <p>Latest Products</p>
+                            <h3>PEBBLE</h3>
+                            <span>MC-C01</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <button class="slider-arrow next" id="slide-next"><i data-lucide="chevron-right"></i></button>
         </section>
 
         <section class="trust-grid">
@@ -160,7 +195,7 @@
                 <h4>Fast Install</h4>
                 <p>Free professional setup within 3-5 days.</p>
             </div>
-            
+
         </section>
     </main>
 
@@ -196,6 +231,27 @@
                 // 2. Add 'active' class to the one you just clicked
                 this.classList.add('active');
             });
+        });
+
+        const track = document.getElementById('slider-track');
+        const nextBtn = document.getElementById('slide-next');
+        const prevBtn = document.getElementById('slide-prev');
+
+        let index = 0;
+
+        nextBtn.addEventListener('click', () => {
+            // Only move if there are more cards (logic for 3 cards)
+            if (index < 1) {
+                index++;
+                track.style.transform = `translateX(-${index * 34}%)`;
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+                track.style.transform = `translateX(0)`;
+            }
         });
     </script>
 </body>
