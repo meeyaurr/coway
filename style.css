@@ -74,8 +74,17 @@
 .hero h1 {
     font-size: 4rem;
     background: linear-gradient(180deg, var(--primary), #555);
+    
+    /* 1. The standard property (for future-proofing) */
+    background-clip: text;
+    
+    /* 2. The vendor-specific property (needed for most browsers currently) */
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    
+    /* 3. Must be paired with transparent text to see the gradient */
+    color: transparent;
+    -webkit-text-fill-color: transparent; 
+    
     letter-spacing: -2px;
 }
 
