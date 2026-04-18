@@ -38,7 +38,8 @@
                                     <a href="coreplus.html">Core Plus</a>
                                     <a href="dazzie.html">Cinnamon</a>
                                     <a href="glaze.html">Glaze</a>
-                                    <a href="Lucy Plus">Outdoor FIlter</a>
+                                    <a href="lucyplus.html">Lucy Plus</a>
+                                    <a href="outdoorfilter.html">Outdoor FIlter</a>
                                     <a href="neoplus.html">Neo Plus</a>
                                     <a href="neon.html">Neon</a>
                                     <a href="ombak.html">Ombak</a>
@@ -147,31 +148,24 @@
         <section class="berex-slider">
             <button class="slider-arrow prev" id="slide-prev"><i data-lucide="chevron-left"></i></button>
 
-            <div class="slider-window">
+            <div class="slider-window" id="slider-window">
                 <div class="slider-track" id="slider-track">
-                    <div class="berex-card">
-                        <img src="img/massage-bed.jpg" alt="Massage Bed">
-                        <div class="card-overlay">
-                            <p>Latest Products</p>
-                            <h3>MASSAGE BED</h3>
-                            <span>MB-B01 | MB-C01</span>
-                        </div>
+                    <div class="berex-card clone"><img src="img/pebble.jpg">
+                        <h3>PEBBLE</h3>
                     </div>
-                    <div class="berex-card">
-                        <img src="img/mine.jpg" alt="Mine">
-                        <div class="card-overlay">
-                            <p>Latest Products</p>
-                            <h3>MINE</h3>
-                            <span>MC-B02</span>
-                        </div>
+
+                    <div class="berex-card"><img src="img/massage-bed.jpg">
+                        <h3>MASSAGE BED</h3>
                     </div>
-                    <div class="berex-card">
-                        <img src="img/pebble.jpg" alt="Pebble">
-                        <div class="card-overlay">
-                            <p>Latest Products</p>
-                            <h3>PEBBLE</h3>
-                            <span>MC-C01</span>
-                        </div>
+                    <div class="berex-card"><img src="img/mine.jpg">
+                        <h3>MINE</h3>
+                    </div>
+                    <div class="berex-card"><img src="img/pebble.jpg">
+                        <h3>PEBBLE</h3>
+                    </div>
+
+                    <div class="berex-card clone"><img src="img/massage-bed.jpg">
+                        <h3>MASSAGE BED</h3>
                     </div>
                 </div>
             </div>
@@ -233,25 +227,75 @@
             });
         });
 
+        const sliderWindow = document.getElementById('slider-window');
         const track = document.getElementById('slider-track');
+        const slides = document.querySelectorAll('.berex-card');
         const nextBtn = document.getElementById('slide-next');
         const prevBtn = document.getElementById('slide-prev');
 
-        let index = 0;
+        let isDragging = false, startX, scrollLeft, currentIndex = 1;
+        const cardWidth = slides[0].offsetWidth + 20; // card + gap
 
-        nextBtn.addEventListener('click', () => {
-            // Only move if there are more cards (logic for 3 cards)
-            if (index < 1) {
-                index++;
-                track.style.transform = `translateX(-${index * 34}%)`;
+        // Initialize position to the first real slide (skipping the clone)
+        track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+
+        // INFINITE LOGIC: Check if we are on a clone and snap back
+        track.addEventListener('transitionend', () => {
+            if (slides[currentIndex].classList.contains('clone')) {
+                track.classList.add('no-transition');
+                currentIndex = slides[currentIndex].innerHTML.includes('MASSAGE BED') ? 1 : slides.length - 2;
+                track.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+                setTimeout(() => track.classList.remove('no-transition'), 10);
             }
         });
 
+        // DRAG LOGIC
+        const startDrag = (e) => {
+            isDragging = true;
+            startX = (e.pageX || e.touches[0].pageX) - track.offsetLeft;
+            track.classList.add('no-transition');
+        };
+
+        const moveDrag = (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = (e.pageX || e.touches[0].pageX) - track.offsetLeft;
+            const walk = x - startX;
+            track.style.transform = `translateX(${-currentIndex * cardWidth + walk}px)`;
+        };
+
+        const endDrag = (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            track.classList.remove('no-transition');
+
+            // Determine if drag was far enough to change slide
+            const endX = (e.pageX || e.changedTouches[0].pageX) - track.offsetLeft;
+            if (startX - endX > 50) currentIndex++;
+            else if (startX - endX < -50) currentIndex--;
+
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        };
+
+        // Event Listeners for Mouse and Touch
+        sliderWindow.addEventListener('mousedown', startDrag);
+        sliderWindow.addEventListener('mousemove', moveDrag);
+        sliderWindow.addEventListener('mouseup', endDrag);
+        sliderWindow.addEventListener('mouseleave', endDrag);
+
+        sliderWindow.addEventListener('touchstart', startDrag);
+        sliderWindow.addEventListener('touchmove', moveDrag);
+        sliderWindow.addEventListener('touchend', endDrag);
+
+        // Button Clicks
+        nextBtn.addEventListener('click', () => {
+            currentIndex++;
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        });
+
         prevBtn.addEventListener('click', () => {
-            if (index > 0) {
-                index--;
-                track.style.transform = `translateX(0)`;
-            }
+            currentIndex--;
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
         });
     </script>
 </body>

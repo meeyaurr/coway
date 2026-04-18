@@ -530,14 +530,22 @@ body::after {
 }
 
 .slider-window {
-    overflow: hidden;
-    border-radius: 20px;
+    cursor: grab;
+    user-select: none; /* Prevents text/images from being highlighted while dragging */
+}
+
+.slider-window:active {
+    cursor: grabbing;
 }
 
 .slider-track {
     display: flex;
     gap: 20px;
     transition: transform 0.5s ease-in-out;
+}
+
+.slider-track.no-transition {
+    transition: none !important;
 }
 
 .berex-card {
