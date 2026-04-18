@@ -54,25 +54,38 @@ body {
 }
 
 .circle {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     cursor: pointer;
-    display: inline-block;
-    transition: transform 0.2s ease;
-    border: 1px solid #ddd; /* Subtle border for all */
+    position: relative;
+    transition: all 0.2s ease;
+    /* This creates the outer ring space */
+    border: 2px solid transparent; 
+    padding: 2px; /* Space between ring and color */
+    background-clip: content-box; /* Keeps the color inside the padding */
 }
 
-.circle:hover {
-    transform: scale(1.2);
-}
-
+/* The Outer Ring */
 .circle.white {
     background-color: #ffffff;
+    border-color: #ddd; /* Light gray outer ring */
 }
 
 .circle.black {
     background-color: #000000;
+    border-color: transparent; /* Hide ring until hovered/active */
+}
+
+/* Hover & Active State (The Double Border Effect) */
+.circle:hover, .circle.active {
+    border-color: var(--coway-blue); /* Coway Blue outer ring */
+    transform: scale(1.1);
+}
+
+/* Special Case: White circle needs a sub-border so it doesn't blend */
+.circle.white {
+    box-shadow: inset 0 0 0 1px #eee;
 }
 
 /* --- 1. NAVIGATION BAR BASE --- */
