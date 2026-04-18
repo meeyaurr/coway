@@ -240,6 +240,31 @@ body::after {
     border-color: #eee; /* Light ring when not selected */
 }
 
+.circle.beige {
+    background-color: #F5F5DC;
+    border-color: #eee; /* Light ring when not selected */
+}
+
+.circle.peachpink {
+    background-color: #F98B88;
+    border-color: #eee; /* Light ring when not selected */
+}
+
+.circle.mintgreen {
+    background-color: #C2E5D3;
+    border-color: #eee; /* Light ring when not selected */
+}
+
+.circle.cielblue {
+    background-color: #8092C9;
+    border-color: #eee; /* Light ring when not selected */
+}
+
+.circle.pebblegray {
+    background-color: rgb(64, 64, 62);
+    border-color: #eee; /* Light ring when not selected */
+}
+
 /* Hover & Active State (The Double Border Effect) */
 .circle:hover, .circle.active {
     border-color: var(--coway-blue) !important;
