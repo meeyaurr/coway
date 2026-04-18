@@ -23,19 +23,6 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-.bg-watermark {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 25vw; /* Extremely large size based on screen width */
-    font-weight: 800;
-    color: rgba(0, 0, 0, 0.02); /* Almost invisible gray */
-    z-index: -2;
-    pointer-events: none; /* Make sure it doesn't block clicks */
-    user-select: none;
-}
-
 .bg-orb {
     position: fixed;
     width: 600px;
