@@ -69,23 +69,19 @@ body {
 /* The Outer Ring */
 .circle.white {
     background-color: #ffffff;
-    border-color: #ddd; /* Light gray outer ring */
+    border-color: #eee; /* Light ring when not selected */
+    box-shadow: inset 0 0 0 1px #ddd; /* Prevents white from disappearing */
 }
 
 .circle.black {
     background-color: #000000;
-    border-color: transparent; /* Hide ring until hovered/active */
+    border-color: #eee; /* Light ring when not selected */
 }
 
 /* Hover & Active State (The Double Border Effect) */
 .circle:hover, .circle.active {
-    border-color: var(--coway-blue); /* Coway Blue outer ring */
+    border-color: var(--coway-blue) !important;
     transform: scale(1.1);
-}
-
-/* Special Case: White circle needs a sub-border so it doesn't blend */
-.circle.white {
-    box-shadow: inset 0 0 0 1px #eee;
 }
 
 /* --- 1. NAVIGATION BAR BASE --- */
