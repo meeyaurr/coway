@@ -54,21 +54,27 @@
 
 .hero {
     position: relative;
-    /* padding: 120px 0 60px;
-    background: radial-gradient(circle at center, rgba(0, 176, 234, 0.1) 0%, transparent 70%); */
+    text-align: center; /* Ensures everything stays centered */
+    padding: 140px 0 100px; /* Increased padding for a more premium feel */
+    
+    /* FIX: This dual gradient blends the blue glow into a white bottom fade */
+    background: 
+        linear-gradient(to bottom, transparent 50%, #ffffff 100%), 
+        radial-gradient(circle at center, rgba(0, 176, 234, 0.12) 0%, transparent 75%);
+    
+    /* EMERGENCY FIX: This ensures no 1px sub-pixel gaps appear */
+    margin-bottom: -1px; 
 }
 
 .hero h1 {
     font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
     background: linear-gradient(180deg, var(--primary), #555);
     
-    /* 1. The standard property (for future-proofing) */
     background-clip: text;
-    
-    /* 2. The vendor-specific property (needed for most browsers currently) */
     -webkit-background-clip: text;
     
-    /* 3. Must be paired with transparent text to see the gradient */
     color: transparent;
     -webkit-text-fill-color: transparent; 
     
