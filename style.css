@@ -532,6 +532,8 @@ body::after {
 .slider-window {
     width: 100%;
     overflow: hidden; /* This acts as the 'crop' tool */
+    user-select: none; /* Prevents text highlighting */
+    -webkit-user-drag: none; /* Stops the browser's default drag behavior */
 }
 
 .slider-window:active {
@@ -562,6 +564,10 @@ body::after {
     height: 100%;
     object-fit: cover; /* This prevents the image from stretching */
     display: block;
+
+    pointer-events: none; /* Makes the mouse click 'pass through' the image to the div below */
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 /* Dark overlay text exactly like your image */

@@ -309,6 +309,15 @@
             currentIndex--;
             track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
         });
+
+        // Prevent the browser from dragging the actual image file
+        const sliderImages = document.querySelectorAll('.berex-card img');
+
+        sliderImages.forEach(img => {
+            img.addEventListener('dragstart', (e) => {
+                e.preventDefault();
+            });
+        });
     </script>
 </body>
 
