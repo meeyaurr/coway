@@ -54,16 +54,25 @@
 
 .hero {
     position: relative;
-    text-align: center; /* Ensures everything stays centered */
-    padding: 140px 0 100px; /* Increased padding for a more premium feel */
+    text-align: center;
+    padding: 140px 0 100px;
+    /* 1. Set background to transparent so there's no 'box' visible */
+    background-color: transparent;
     
-    /* FIX: This dual gradient blends the blue glow into a white bottom fade */
-    background: 
-        linear-gradient(to bottom, transparent 50%, #ffffff 100%), 
-        radial-gradient(circle at center, rgba(0, 176, 234, 0.12) 0%, transparent 75%);
+    /* 2. Use a simpler radial gradient that fades to transparent, not white */
+    background-image: radial-gradient(
+        circle at center, 
+        rgba(0, 176, 234, 0.12) 0%, 
+        transparent 70%
+    );
     
-    /* EMERGENCY FIX: This ensures no 1px sub-pixel gaps appear */
-    margin-bottom: -1px; 
+    /* 3. Remove any potential borders or shadows that might show the box edge */
+    border: none;
+    box-shadow: none;
+    
+    /* 4. Ensure it blends with the sections above and below */
+    margin-top: -1px;
+    margin-bottom: -1px;
 }
 
 .hero h1 {
