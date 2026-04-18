@@ -23,6 +23,62 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+.bg-watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25vw; /* Extremely large size based on screen width */
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.02); /* Almost invisible gray */
+    z-index: -2;
+    pointer-events: none; /* Make sure it doesn't block clicks */
+    user-select: none;
+}
+
+.bg-orb {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.15;
+    animation: float 20s infinite alternate;
+}
+
+.orb-1 {
+    background: var(--coway-blue);
+    top: -100px;
+    left: -100px;
+}
+
+.orb-2 {
+    background: var(--primary);
+    bottom: -100px;
+    right: -100px;
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(100px, 50px); }
+}
+
+.hero {
+    position: relative;
+    padding: 120px 0 60px;
+    background: radial-gradient(circle at center, rgba(0, 176, 234, 0.1) 0%, transparent 70%);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    background: linear-gradient(180deg, var(--primary), #555);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -2px;
+}
+
 body {
     background-color: #ffffff;
     /* This creates soft blue "glows" in the corners */
