@@ -76,8 +76,6 @@
 }
 
 body {
-    background-color: #ffffff;
-    /* This creates soft blue "glows" in the corners */
 
     color: var(--text-main);
     line-height: 1.5;
