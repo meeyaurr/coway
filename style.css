@@ -561,10 +561,6 @@ body::after {
     -webkit-user-drag: none; /* Stops the browser's default drag behavior */
 }
 
-.slider-window:active {
-    cursor: grabbing;
-}
-
 .slider-track {
     display: flex;
     gap: 15px; /* Smaller gap helps images fit better */
