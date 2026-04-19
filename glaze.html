@@ -12,109 +12,18 @@
 </head>
 
 <body>
-    <div class="bg-orb orb-1"></div><div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
 
     <a href="https://wa.me/+60196957815" class="floating-wa" target="_blank">
         <i data-lucide="message-circle"></i>
     </a>
 
-    <nav class="nav">
-        <div class="container nav-content">
-            <a href="index.html" class="logo-link">
-                <img src="img/logo.png" alt="Coway Logo" class="nav-logo">
-            </a>
-
-            <div class="nav-links">
-                <div class="dropdown">
-                    <a href="#" class="dropbtn">PRODUCTS <i data-lucide="chevron-down"></i></a>
-                    <div class="mega-menu">
-                        <div class="container mega-grid">
-                            <div class="mega-col">
-                                <img src="img/wpm.jpg" class="cat-img">
-                                <h3>Water Purifier</h3>
-                                <div class="link-list">
-                                    <a href="cinnamon.html">Cinnamon</a>
-                                    <a href="coreplus.html">Core Plus</a>
-                                    <a href="dazzie.html">Dazzie</a>
-                                    <a href="glaze.html">Glaze</a>
-                                    <a href="lucyplus.html">Lucy Plus</a>
-                                    <a href="neoplus.html">Neo Plus</a>
-                                    <a href="neon.html">Neon</a>
-                                    <a href="ombak.html">Ombak</a>
-                                </div>
-                            </div>
-                            <div class="mega-col">
-                                <img src="img/apm.jpg" class="cat-img">
-                                <h3>Air Purifier</h3>
-                                <div class="link-list">
-                                    <a href="lombok3.html">Lombok 3</a>
-                                    <a href="noble2.html">Noble 2</a>
-                                    <a href="storm2.html">Storm 2</a>
-                                    <a href="studio.html">Studio</a>
-                                    <a href="tuba.html">Tuba</a>
-                                </div>
-                            </div>
-                            <div class="mega-col">
-                                <img src="img/owf.jpg" class="cat-img">
-                                <h3>Air Purifier</h3>
-                                <div class="link-list">
-                                    <a href="outdoorfilter.html">Outdoor Filter</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">SERVICE</a>
-                <a href="https://wa.me/+60196957815" class="nav-btn">CONTACT</a>
-            </div>
-
-            <button class="menu-toggle" id="mobile-menu-btn">
-                <i data-lucide="menu"></i>
-            </button>
-
-            <div class="mobile-overlay" id="mobile-overlay-menu">
-                <button class="close-btn" id="close-btn"><i data-lucide="x"></i></button>
-
-                <div class="mobile-logo-center">
-                    <img src="img/logo.png" alt="Coway" class="nav-logo">
-                </div>
-
-                <div class="mobile-links-wrapper">
-                    <a href="#" class="m-blue">CHANGE YOUR LIFE</a>
-
-                    <div class="m-section">
-                        <p class="m-blue">Products</p>
-                        <div class="m-subs">
-                            <a href="waterpurifier.html">Water Purifier</a>
-                            <a href="airpurifier.html">Air Purifier</a>
-                            <!-- <a href="#">Coway BEREX</a>
-                            <a href="#">Hands-Free Bidet</a>
-                            <a href="#">Air Conditioner</a> -->
-                            <a href="outdoor.html">Outdoor</a>
-                            <!-- <a href="#">Laundry</a> -->
-                        </div>
-                    </div>
-
-                    <div class="m-section">
-                        <p class="m-blue">Service</p>
-                        <div class="m-subs">
-                            <!-- <a href="#">Heart Service</a>
-                            <a href="#">Mattress Care Service</a> -->
-                        </div>
-                    </div>
-
-                    <!-- <a href="#" class="m-blue">Trade-In</a>
-                    <a href="#" class="m-blue">Happy Water Project</a> -->
-                </div>
-            </div>
-        </div>
-    </nav>
-
     <main class="container">
         <header class="hero">
             <span class="badge">No. 1 in Malaysia</span>
             <!-- <h1>The best care for <br>your family.</h1> -->
-             <h1>Water &nbsp;&nbsp;Purifier</h1>
+            <h1>Water &nbsp;&nbsp;Purifier</h1>
         </header>
 
         <section class="product-grid">
@@ -137,17 +46,25 @@
                         <p>Available Colors:</p>
                         <div class="swatches">
                             <span class="circle white active" title="White"></span>
-                            
+
                         </div>
                     </div>
                     <a href="https://wa.me/+60196957815" class="btn-primary">Order Now</a>
                 </div>
             </div>
 
-            
+
 
         </section>
     </main>
+
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            });
+    </script>
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
