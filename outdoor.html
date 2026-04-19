@@ -133,109 +133,36 @@
     <main class="container">
         <header class="hero">
             <span class="badge">No. 1 in Malaysia</span>
-            <h1>The best care for <br>your family.</h1>
+            <!-- <h1>The best care for <br>your family.</h1> -->
+            <h1>Outdoor</h1>
         </header>
 
-        <!-- add content here-->
-        <br>
+        <section class="product-grid">
 
-        <section class="quick-catalog">
-            <div class="mini-card">
-                <div class="mini-icon"><i data-lucide="droplets"></i></div>
-                <span>Water</span>
-            </div>
-            <div class="mini-card">
-                <div class="mini-icon"><i data-lucide="wind"></i></div>
-                <span>Air</span>
-            </div>
-            <div class="mini-card">
-                <div class="mini-icon"><i data-lucide="air-vent"></i></div>
-                <span>Room</span>
-            </div>
-            <div class="mini-card">
-                <div class="mini-icon"><i data-lucide="door-open"></i></div>
-                <span>Outdoor</span>
-            </div>
-            <div class="mini-card">
-                <div class="mini-icon"><i data-lucide="washing-machine"></i></div>
-                <span>Washer</span>
-            </div>
-        </section>
-
-        <section class="berex-slider">
-            <button class="slider-arrow prev" id="slide-prev"><i data-lucide="chevron-left"></i></button>
-
-            <div class="slider-window" id="slider-window">
-                <div class="slider-track" id="slider-track">
-                    <div class="berex-card clone"><img src="img/berex6.jpg">
-                        <h3>MASSAGE BED</h3>
+            <div class="card">
+                <div class="icon-tag"><i data-lucide="droplets"></i> Water</div>
+                <div class="img-container">
+                    <img src="img/coway-outdoor-filter.png" alt="Outdoor Filter">
+                </div>
+                <div class="info">
+                    <h3>Outdoor Filter</h3>
+                    <p class="price">RM 60<span>/mo</span></p>
+                    <ul class="specs">
+                        <li><i data-lucide="check"></i> 10.0 kg Washing Capacity</li>
+                        <li><i data-lucide="check"></i> 6.0 kg Drying Capacity</li>
+                        <li><i data-lucide="check"></i> Washing Heating</li>
+                        <li><i data-lucide="check"></i> 310 x 523 x 520 mm (W x D x H)</li>
+                        <li><i data-lucide="check"></i> 73 kg</li>
+                    </ul>
+                    <div class="color-selection">
+                        <p>Available Colors:</p>
+                        <div class="swatches">
+                            <span class="circle silver active" title="Stainless Steel Silver"></span>
+                        </div>
                     </div>
-                    <div class="berex-card clone"><img src="img/berex7.jpg">
-                        <h3>MINE</h3>
-                    </div>
-                    <div class="berex-card clone"><img src="img/berex8.jpg">
-                        <h3>PEBBLE</h3>
-                    </div>
-
-                    <div class="berex-card"><img src="img/berex1.jpg">
-                        <h3>1</h3>
-                    </div>
-                    <div class="berex-card"><img src="img/berex2.jpg">
-                        <h3>2</h3>
-                    </div>
-                    <div class="berex-card"><img src="img/berex3.jpg">
-                        <h3>3</h3>
-                    </div>
-                    <div class="berex-card"><img src="img/berex4.jpg">
-                        <h3>4</h3>
-                    </div>
-                    <div class="berex-card"><img src="img/berex5.jpg">
-                        <h3>5</h3>
-                    </div>
-                    <div class="berex-card"><img src="img/berex6.jpg">
-                        <h3>6</h3>
-                    </div>
-                    <div class="berex-card"><img src="img/berex7.jpg">
-                        <h3>7</h3>
-                    </div>
-                    <div class="berex-card"><img src="img/berex8.jpg">
-                        <h3>8</h3>
-                    </div>
-
-                    <div class="berex-card clone"><img src="img/berex1.jpg">
-                        <h3>1</h3>
-                    </div>
-                    <div class="berex-card clone"><img src="img/berex2.jpg">
-                        <h3>2</h3>
-                    </div>
-                    <div class="berex-card clone"><img src="img/berex3.jpg">
-                        <h3>3</h3>
-                    </div>
+                    <a href="https://wa.me/+60196957815" class="btn-primary">Order Now</a>
                 </div>
             </div>
-
-            <button class="slider-arrow next" id="slide-next"><i data-lucide="chevron-right"></i></button>
-        </section>
-
-        <br>
-
-        <section class="trust-grid">
-            <div class="trust-item">
-                <i data-lucide="shield-check"></i>
-                <h4>100% Halal</h4>
-                <p>Certified by JAKIM for your peace of mind.</p>
-            </div>
-            <div class="trust-item">
-                <i data-lucide="wrench"></i>
-                <h4>Heart Service</h4>
-                <p>Free maintenance every 2-4 months.</p>
-            </div>
-            <div class="trust-item">
-                <i data-lucide="truck"></i>
-                <h4>Fast Install</h4>
-                <p>Free professional setup within 3-5 days.</p>
-            </div>
-
         </section>
     </main>
 
@@ -272,98 +199,6 @@
                 this.classList.add('active');
             });
         });
-
-        const track = document.getElementById('slider-track');
-        const sliderWindow = document.getElementById('slider-window');
-        const nextBtn = document.getElementById('slide-next');
-        const prevBtn = document.getElementById('slide-prev');
-
-        let isDragging = false, startX, currentTranslate = 0, prevTranslate = 0;
-        let currentIndex = 3; // We start at 3 because of the 3 clones at the front
-        const realItemsCount = 8;
-        const gap = 15;
-
-        const getCardWidth = () => document.querySelector('.berex-card').offsetWidth + gap;
-
-        // Initial position: move past the 3 clones to the first real image
-        const setPositionByIndex = () => {
-            currentTranslate = currentIndex * -getCardWidth();
-            prevTranslate = currentTranslate;
-            setSliderPosition();
-        };
-
-        const setSliderPosition = () => {
-            track.style.transform = `translateX(${currentTranslate}px)`;
-        };
-
-        // Check for the "Infinite Jump"
-        track.addEventListener('transitionend', () => {
-            const cardWidth = getCardWidth();
-            if (currentIndex >= realItemsCount + 3) {
-                track.classList.add('no-transition');
-                currentIndex = 3;
-                setPositionByIndex();
-            }
-            if (currentIndex <= 0) {
-                track.classList.add('no-transition');
-                currentIndex = realItemsCount;
-                setPositionByIndex();
-            }
-            // Small delay to turn transitions back on
-            setTimeout(() => track.classList.remove('no-transition'), 10);
-        });
-
-        // DRAG LOGIC (Smooth)
-        const startDrag = (e) => {
-            isDragging = true;
-            startX = e.type.includes('touch') ? e.touches[0].pageX : e.pageX;
-            track.classList.add('no-transition');
-        };
-
-        const moveDrag = (e) => {
-            if (!isDragging) return;
-            const currentX = e.type.includes('touch') ? e.touches[0].pageX : e.pageX;
-            const currentDiff = currentX - startX;
-            currentTranslate = prevTranslate + currentDiff;
-            setSliderPosition();
-        };
-
-        const endDrag = (e) => {
-            isDragging = false;
-            track.classList.remove('no-transition');
-            const movedBy = currentTranslate - prevTranslate;
-
-            // Snap to next/prev if dragged more than 100px
-            if (movedBy < -100) currentIndex++;
-            else if (movedBy > 100) currentIndex--;
-
-            setPositionByIndex();
-        };
-
-        // Button Clicks
-        nextBtn.addEventListener('click', () => {
-            if (track.classList.contains('no-transition')) return;
-            currentIndex++;
-            setPositionByIndex();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            if (track.classList.contains('no-transition')) return;
-            currentIndex--;
-            setPositionByIndex();
-        });
-
-        // Attach events
-        sliderWindow.addEventListener('mousedown', startDrag);
-        sliderWindow.addEventListener('mousemove', moveDrag);
-        sliderWindow.addEventListener('mouseup', endDrag);
-        sliderWindow.addEventListener('mouseleave', endDrag);
-        sliderWindow.addEventListener('touchstart', startDrag);
-        sliderWindow.addEventListener('touchmove', moveDrag);
-        sliderWindow.addEventListener('touchend', endDrag);
-
-        // Run init
-        setPositionByIndex();
     </script>
 </body>
 

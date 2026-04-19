@@ -265,6 +265,11 @@ body::after {
     border-color: #eee; /* Light ring when not selected */
 }
 
+.circle.silver {
+    background-color: #BCC6CC;
+    border-color: #eee; /* Light ring when not selected */
+}
+
 /* Hover & Active State (The Double Border Effect) */
 .circle:hover, .circle.active {
     border-color: var(--coway-blue) !important;
