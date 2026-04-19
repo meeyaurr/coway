@@ -89,3 +89,37 @@
         </div>
     </div>
 </nav>
+
+<script>
+    lucide.createIcons();
+
+    // MOBILE MENU LOGIC
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const mobileOverlay = document.getElementById('mobile-overlay-menu');
+
+    // Open Menu
+    menuBtn.addEventListener('click', () => {
+        mobileOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Stop background scrolling when menu is open
+    });
+
+    // Close Menu via the 'X' button
+    closeBtn.addEventListener('click', () => {
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Allow scrolling again
+    });
+
+    // COLOR SWATCH LOGIC
+    const swatches = document.querySelectorAll('.circle');
+
+    swatches.forEach(swatch => {
+        swatch.addEventListener('click', function () {
+            // 1. Remove 'active' class from all circles
+            swatches.forEach(s => s.classList.remove('active'));
+
+            // 2. Add 'active' class to the one you just clicked
+            this.classList.add('active');
+        });
+    });
+</script>
