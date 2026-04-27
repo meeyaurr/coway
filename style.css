@@ -466,17 +466,19 @@ body::after {
 .hero h1 { font-size: 3.5rem; font-weight: 700; }
 
 .badge {
-    display: inline-block;
-    background: #eef5ff;
-    color: var(--primary);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    text-align: center;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    background: #e0f4f9; /* Light blue background like your image */
+    color: #0072b5;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    
+    /* --- THE CENTERING FIX --- */
+    margin: 0 auto 30px auto; /* 'auto' on left/right pushes it to center */
+    align-self: center;       /* Tells flexbox to center this specific item */
 }
 
 .product-grid {
@@ -682,8 +684,7 @@ section {
 .hero-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Keeps the Heading, Desc, and Buttons left-aligned */
-    text-align: left;
+    align-items: flex-start; /* This keeps your Title and Desc on the left */
     width: 100%;
 }
 
