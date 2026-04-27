@@ -662,7 +662,7 @@ section {
 /* --- SECTION 1: HERO (Image 8) --- */
 .section-hero {
     background-color: transparent;
-    text-align: center;
+    text-align: left;
     padding: 120px 0 80px;
 }
 
@@ -825,6 +825,7 @@ section {
     grid-template-columns: 1.1fr 0.9fr;
     gap: 80px;
     align-items: center;
+    justify-content: start;
 }
 
 /* Technician Profile Badge */
@@ -964,12 +965,12 @@ section {
 
 /* --- Dynamic Typography --- */
 .hero-title {
-    font-size: clamp(2.8rem, 5vw, 4rem);
-    line-height: 1.1;
-    font-weight: 800; /* Extra bold for premium feel */
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-weight: 800; 
+    line-height: 1.05;
     color: var(--primary);
-    margin-bottom: 25px;
-    letter-spacing: -1px;
+    margin: 0 0 25px 0; /* Reset margins to 0 for left alignment */
+    letter-spacing: -2px;
 }
 
 .hero-title span {
@@ -979,9 +980,9 @@ section {
 
 .hero-desc {
     font-size: 1.15rem;
-    color: #4a4a4f;
-    max-width: 550px;
-    margin-bottom: 40px;
+    color: var(--text-sub);
+    max-width: 550px; /* Keeps text readable without stretching across screen */
+    margin: 0 0 40px 0; /* Ensures no auto-margins are centering it */
     line-height: 1.6;
 }
 
