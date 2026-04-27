@@ -475,6 +475,8 @@ body::after {
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 20px;
+    text-align: center;
+    align-items: center;
 }
 
 .product-grid {
