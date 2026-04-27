@@ -664,7 +664,7 @@ section {
 /* --- SECTION 1: HERO (Image 8) --- */
 .section-hero {
     background-color: transparent;
-    text-align: left;
+    text-align: center;
     padding: 120px 0 80px;
 }
 
