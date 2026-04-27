@@ -640,3 +640,48 @@ body::after {
 @media (max-width: 768px) {
     .berex-card { min-width: 100%; }
 }
+
+/* Promo Banner */
+.promo-banner {
+    background: linear-gradient(135deg, #00b0ea 0%, #0072b5 100%);
+    border-radius: 20px;
+    padding: 60px 40px;
+    color: white;
+    text-align: center;
+    margin: 40px 0;
+}
+.promo-badge {
+    background: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* Steps Grid */
+.section-title { text-align: center; margin-bottom: 40px; color: #333; }
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+.step { text-align: center; padding: 20px; }
+.step-num {
+    width: 50px;
+    height: 50px;
+    background: #00b0ea;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* FAQ */
+.faq-section { max-width: 800px; margin: 0 auto 80px; }
+.faq-item { margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+.faq-item h4 { color: #00b0ea; margin-bottom: 10px; }
