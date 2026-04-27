@@ -679,6 +679,14 @@ section {
     margin-bottom: 30px;
 }
 
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Keeps the Heading, Desc, and Buttons left-aligned */
+    text-align: left;
+    width: 100%;
+}
+
 .hero-content h1 {
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     line-height: 1.1;
@@ -923,14 +931,17 @@ section {
 .technician-card {
     display: flex;
     align-items: center;
-    gap: 20px;
-    background: white;
-    padding: 15px;
-    border-radius: 24px;
+    gap: 16px;
+    background: #ffffff;
+    padding: 14px 22px;
+    border-radius: 18px;
     width: fit-content;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-    margin-bottom: 40px;
-    border: 1px solid rgba(0, 176, 234, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+
+    /* --- THE CENTERING MAGIC --- */
+    margin: 0 auto 35px auto; /* 'auto' on left and right centers it */
+    align-self: center;       /* Centers it within the flex-column container */
 }
 
 .profile-frame {
