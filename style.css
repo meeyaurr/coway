@@ -687,6 +687,7 @@ section {
 .hero-content h1 span {
     color: var(--coway-blue);
     font-style: italic;
+    text-align: center;
 }
 
 .hero-trust-line {
