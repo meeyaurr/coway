@@ -15,7 +15,7 @@
     <div class="bg-orb orb-1"></div>
     <div class="bg-orb orb-2"></div>
 
-    <a href="https://wa.me/+60196957815" class="floating-wa" target="_blank">
+    <a href="https://wa.me/+601128503367" class="floating-wa" target="_blank">
         <i data-lucide="message-circle"></i>
     </a>
 
@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <!-- <a href="#">SERVICE</a> -->
-                <a href="https://wa.me/+60196957815" class="nav-btn">CONTACT</a>
+                <a href="https://wa.me/+601128503367" class="nav-btn">CONTACT</a>
             </div>
 
             <button class="menu-toggle" id="mobile-menu-btn">
@@ -258,19 +258,6 @@
         closeBtn.addEventListener('click', () => {
             mobileOverlay.classList.remove('active');
             document.body.style.overflow = 'auto'; // Allow scrolling again
-        });
-
-        // COLOR SWATCH LOGIC
-        const swatches = document.querySelectorAll('.circle');
-
-        swatches.forEach(swatch => {
-            swatch.addEventListener('click', function () {
-                // 1. Remove 'active' class from all circles
-                swatches.forEach(s => s.classList.remove('active'));
-
-                // 2. Add 'active' class to the one you just clicked
-                this.classList.add('active');
-            });
         });
 
         const track = document.getElementById('slider-track');
