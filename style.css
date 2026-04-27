@@ -661,7 +661,7 @@ section {
 
 /* --- SECTION 1: HERO (Image 8) --- */
 .section-hero {
-    background-color: #f9fbfc;
+    background-color: transparent;
     text-align: center;
     padding-top: 140px; /* Space for fixed navbar */
 }
