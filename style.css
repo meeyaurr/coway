@@ -1143,15 +1143,7 @@ section {
 .disclaimer p {
     opacity: 0.7;
     line-height: 1.6;
-    max-width: 400px; /* Wider now so it's not so 'tight' */
-    margin: 0;
-}
-
-.footer-right {
-    display: flex;
-    flex-direction: column; /* Stack picture and disclaimer vertically */
-    align-items: flex-end;   /* Keep them aligned to the right side */
-    gap: 25px;
+    max-width: 350px;
 }
 
 .footer-pic-frame {
@@ -1200,14 +1192,6 @@ section {
     .footer-bottom {
         flex-direction: column;
         gap: 10px;
-        text-align: center;
-    }
-
-    .footer-right {
-        align-items: center; /* Center everything on mobile */
-    }
-    
-    .disclaimer {
         text-align: center;
     }
 }
