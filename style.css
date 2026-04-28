@@ -1147,8 +1147,8 @@ section {
 }
 
 .footer-pic-frame {
-    width: 220px; /* Medium sized picture */
-    height: 150px;
+    width: 3500px; /* Medium sized picture */
+    height: 500px;
     border-radius: 20px;
     overflow: hidden;
     border: 4px solid rgba(255,255,255,0.1);
