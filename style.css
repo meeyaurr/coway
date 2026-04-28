@@ -481,6 +481,23 @@ body::after {
     align-self: center;       /* Tells flexbox to center this specific item */
 }
 
+.promo-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #e0f4f9;
+    color: #0072b5;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+
+    /* --- THE CENTERING MAGIC --- */
+    align-self: center;   /* Moves ONLY this element to the center */
+    margin-left: auto;    /* Extra safety for older browsers */
+    margin-right: auto;   /* Extra safety for older browsers */
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
