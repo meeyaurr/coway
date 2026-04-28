@@ -1203,7 +1203,7 @@ section {
     }
     
     .footer-brand { justify-content: center; }
-    .brand-desc, .disclaimer p { max-width: 100%; margin: 0 auto; gap: 20%;}
+    .brand-desc, .disclaimer p { max-width: 100%; margin: 0 auto; gap: 100%;}
     
     .footer-center a { justify-content: center; }
     
