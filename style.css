@@ -1681,7 +1681,7 @@ section {
 .faq-question span {
     font-size: 1.15rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--primary);
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
