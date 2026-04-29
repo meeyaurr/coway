@@ -1505,7 +1505,7 @@ section {
     .brand-desc,
     .disclaimer p {
         max-width: 100%;
-        margin: 0 auto;
+        margin-bottom: 50px;
     }
 
     .footer-disclaimer h5 {
@@ -1530,10 +1530,6 @@ section {
 
     .footer-right {
         justify-content: center;
-    }
-
-    .footer-disclaimer {
-        margin: 0 auto;
     }
 
     .footer-disclaimer p {
