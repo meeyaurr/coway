@@ -624,36 +624,31 @@
         // WA PROMO FORM HANDLING
         document.addEventListener('DOMContentLoaded', () => {
             const promoForm = document.getElementById('wa-promo-form');
-
-            // --- CONFIGURE YOUR TARGET PHONE NUMBER HERE ---
-            // MUST include country code, NO '+' or spaces. e.g. 601128503367
             const targetWhatsAppNumber = "601128503367";
 
             if (promoForm) {
                 promoForm.addEventListener('submit', function (e) {
-                    e.preventDefault(); // Prevent standard page refresh submission
+                    e.preventDefault();
 
-                    // 1. Collect form data
                     const name = document.getElementById('wa-name').value;
                     const phone = document.getElementById('wa-phone').value;
                     const email = document.getElementById('wa-email').value || "(Not provided)";
                     const interest = document.getElementById('wa-interest').value;
 
-                    // 2. Construct the formatted message
-                    const message = `*Hi Syarif! I'd like to claim the 50% Off Anniversary Promo.*%0A%0A` +
-                        `*Here are my details:*%0A` +
-                        `• Name: ${name}%0A` +
-                        `• Phone: ${phone}%0A` +
-                        `• Email: ${email}%0A` +
-                        `• Interested in: ${interest}`;
+                    // Use encodeURIComponent for a safer, more reliable URL string
+                    const message = encodeURIComponent(
+                        `*Hi! I'd like to claim the 50% Off Anniversary Promo.*\n\n` +
+                        `*Details:*\n` +
+                        `• Name: ${name}\n` +
+                        `• Phone: ${phone}\n` +
+                        `• Email: ${email}\n` +
+                        `• Interested in: ${interest}`
+                    );
 
-                    // 3. Create the WhatsApp URL and redirect
                     const waUrl = `https://wa.me/${targetWhatsAppNumber}?text=${message}`;
 
-                    // Optional: Show a brief confirmation before redirecting
-                    // alert('Opening WhatsApp to send your request...');
-
-                    window.open(waUrl, '_blank').focus();
+                    // Redirect the current tab to WhatsApp (more reliable than window.open)
+                    window.location.href = waUrl;
                 });
             }
         });
