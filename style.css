@@ -622,7 +622,7 @@ body::after {
     display: inline-flex;
     align-items: center;
     padding: 10px 24px;
-    background: rgba(10, 197, 198, 0.1); /* Light teal tint */
+    background: rgba(10, 197, 198, 0.1);
     border: 1px solid rgba(10, 197, 198, 0.2);
     border-radius: 100px;
     color: #0ac5c6;
@@ -863,7 +863,8 @@ section {
 .section-hero {
     background-color: transparent;
     text-align: left;
-    padding: 60px 0 80px;
+    padding: 80px 0;
+    position: relative;
 }
 
 .promo-pill {
@@ -910,9 +911,9 @@ section {
 /* Container for the centered badge */
 .hero-badge-wrapper {
     display: flex;
-    justify-content: center; /* Centers horizontally */
+    justify-content: center; /* Horizontally centers the badge */
     width: 100%;
-    margin-bottom: 40px;    /* Space between badge and the content below */
+    margin-bottom: 50px;    /* Space between badge and the content below */
 }
 
 /* --- SECTION 2: WHY WORK WITH ME (Image 9) --- */
@@ -1086,7 +1087,7 @@ section {
 /* Hero Split Layout */
 .hero-split {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.2fr 0.8fr; /* Keeps text wider than image */
     gap: 60px;
     align-items: center;
 }
@@ -1168,7 +1169,22 @@ section {
     }
 
     .technician-badge {
-        margin: 0 auto 25px;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .hero-badge-wrapper {
+        margin-bottom: 30px;
+    }
+
+    .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .technician-card {
+        justify-content: center;
+        margin-bottom: 30px;
     }
 
     .hero-ctas {
