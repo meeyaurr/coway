@@ -1531,7 +1531,7 @@ section {
 
 .centered-sub-title {
     display: block;
-    color: #4daeb5;
+    color: var(--coway-blue);
     font-size: 0.9rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -1542,14 +1542,14 @@ section {
 .centered-title {
     font-size: clamp(2rem, 4vw, 3.5rem);
     /* Responsive font size */
-    color: #1e293b;
+    color: var(--primary);
     line-height: 1.1;
     font-weight: 800;
     letter-spacing: -1.5px;
 }
 
 .centered-title span {
-    color: #4daeb5;
+    color: var(--coway-blue);
     font-style: italic;
 }
 
