@@ -625,7 +625,7 @@ body::after {
     background: rgba(10, 197, 198, 0.1);
     border: 1px solid rgba(10, 197, 198, 0.2);
     border-radius: 100px;
-    color: #0ac5c6;
+    color: var(--coway-blue);
     font-size: 0.9rem;
     font-weight: 600;
     white-space: nowrap;
