@@ -226,6 +226,7 @@ body::after {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    text-decoration: none
 }
 
 .mini-card:hover {
@@ -233,6 +234,14 @@ body::after {
     background: var(--coway-blue);
     color: white;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* This specifically kills the purple color after clicking */
+.mini-card:link, 
+.mini-card:visited, 
+.mini-card:active {
+    text-decoration: none;
+    color: var(--primary); /* Or whatever color your text was originally */
 }
 
 .mini-icon {
