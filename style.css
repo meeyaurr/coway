@@ -1686,26 +1686,27 @@ section {
 }
 
 .faq-icon {
-    color: #4daeb5;
-    /* Make the plus rotation match the speed of the dropdown */
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #4daeb5;
 }
 
 /* --- The Answer Reveal --- */
 .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    /* Changed to 0.5s with a cubic-bezier for a "smooth bounce" feel */
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
-                padding 0.4s ease;
+    display: grid;
+    grid-template-rows: 0fr; /* Starts at 0 height */
+    transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0 30px;
 }
 
-.faq-answer p {
+.faq-answer-content {
+    overflow: hidden;
+}
+
+.faq-answer-content p {
     padding-bottom: 25px;
+    padding-top: 10px;
     color: #64748b;
     line-height: 1.6;
-    font-size: 1rem;
 }
 
 /* --- Active State (When Clicked) --- */
@@ -1720,15 +1721,11 @@ section {
 }
 
 .faq-item.active .faq-answer {
-    /* Ensure this is large enough for your text, 
-       but not TOO large (shorter height = smoother animation) */
-    max-height: 400px; 
-    padding-bottom: 30px;
-    padding-top: 10px;
+    grid-template-rows: 1fr; /* Animates perfectly to the exact height of text */
 }
 
 /* Mobile Tweak */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .section-faq { padding: 60px 20px; }
     .faq-question { padding: 20px; }
     .faq-question span { font-size: 1rem; }
