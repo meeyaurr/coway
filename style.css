@@ -1956,8 +1956,7 @@ section {
 
     .claim-desc,
     .claim-trust-list {
-        margin-left: auto;
-        margin-right: auto;
+        text-align: left;
     }
 
     .claim-form-wrapper {
