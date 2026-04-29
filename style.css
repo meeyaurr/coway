@@ -1692,9 +1692,9 @@ section {
 
 /* --- The Answer Reveal --- */
 .faq-answer {
-    max-height: 0;
+    max-height: 0; /* Hidden by default */
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: max-height 0.3s ease-out; /* This creates the sliding effect */
     padding: 0 30px;
 }
 
@@ -1717,7 +1717,8 @@ section {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 200px; /* Adjust if your answers are very long */
+    max-height: 300px; /* Large enough to fit your text */
+    padding-bottom: 20px;
 }
 
 /* Mobile Tweak */
