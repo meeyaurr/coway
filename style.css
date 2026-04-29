@@ -218,15 +218,14 @@ body::after {
 }
 
 .mini-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    /* Removes the underline */
-    color: inherit;
-    /* Keeps the text color the same as before */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 120px;
+    text-align: center;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .mini-card:hover {
