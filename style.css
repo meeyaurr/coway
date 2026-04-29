@@ -1233,110 +1233,108 @@ section {
     }
 }
 
-/* ========================================
-   1 TO 1 TRUST GRID RECREATION (Image 9)
-   ======================================== */
-
-.section-alt {
-    background-color: #f7fbfc; /* Manually sampled very subtle background color */
+/* --- Trust Section Refined --- */
+.section-trust {
+    background: transparent; /* Background now transparent */
+    padding: 100px 0;
 }
 
-/* --- The Header --- */
 .section-header-centered {
     text-align: center;
-    margin-bottom: 70px; /* Specific gap from title to grid */
-    font-family: 'Times New Roman', Times, serif; /* sampled title font style is serif-based */
+    margin-bottom: 60px;
 }
 
 .centered-sub-title {
     display: block;
-    color: #4daeb5; /* Precise sub-title teal */
-    font-size: 0.95rem;
+    color: #4daeb5;
+    font-size: 0.9rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 15px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-bottom: 10px;
 }
 
 .centered-title {
-    font-size: 4rem; /* Matching the huge font size */
-    color: #1e293b; /* Manually sampled title dark gray */
+    font-size: clamp(2rem, 4vw, 3.5rem); /* Responsive font size */
+    color: #1e293b;
     line-height: 1.1;
-    letter-spacing: -2px;
-    font-weight: 500;
+    font-weight: 800;
+    letter-spacing: -1.5px;
 }
 
 .centered-title span {
-    color: #4daeb5; /* Precise highlighted title teal */
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 700;
+    color: #4daeb5;
     font-style: italic;
 }
 
-/* --- The Grid --- */
+.header-subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* --- The "Auto-Fit" Grid --- */
 .precise-trust-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Exactly 2x2 on desktop */
-    gap: 30px; /* Precise gap between cards */
+    /* This tells the grid to fit as many columns as possible, but max 2 per row */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px;
+    max-width: 1100px; /* Prevents cards from getting "way too big" on desktop */
+    margin: 0 auto;    /* Centers the grid container */
 }
 
-/* --- The Individual Card --- */
 .precise-trust-card {
     background: #ffffff;
-    border-radius: 35px; /* Manual sample rounded corners */
-    padding: 60px; /* Manually sampled internal spacing */
-    box-shadow: 0 10px 40px rgba(0, 77, 91, 0.05); /* Soft teal-toned shadow */
+    border-radius: 30px;
+    /* Responsive padding: smaller on small screens, bigger on large */
+    padding: clamp(30px, 5vw, 50px); 
+    border: 1px solid rgba(0,0,0,0.03); /* Subtle border for definition on transparent bg */
+    box-shadow: 0 15px 35px rgba(0, 77, 91, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensures all cards in a row are same height */
 }
 
-/* --- The Icon Box logic --- */
+/* --- Icons --- */
 .trust-icon-box {
-    width: 65px; /* Precise icon container size */
-    height: 65px;
-    border-radius: 18px; /* Precise rounded icon box corner */
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px; /* Precise gap after icon */
+    margin-bottom: 30px;
 }
 
 .trust-icon-box i {
-    width: 30px; /* Presice icon visual size */
-    height: 30px;
-    color: #ffffff; /* sampled internal icon color is white */
+    width: 24px;
+    height: 24px;
+    color: #fff;
 }
 
-/* Specific sampled icon box colors based on Image 9 */
-.halal-icon    { background-color: #4dc2c9; }
-.heart-icon    { background-color: #26b5d9; }
-.install-icon  { background-color: #21b5b5; }
-.personal-icon { background-color: #38b5da; }
+/* Colors from your reference */
+.halal-icon    { background: #4dc2c9; }
+.heart-icon    { background: #26b5d9; }
+.install-icon  { background: #21b5b5; }
+.personal-icon { background: #38b5da; }
 
-/* --- Typographical fine-tuning --- */
+/* --- Text --- */
 .precise-trust-card h4 {
-    font-size: 1.6rem; /* Precise font-size */
-    color: #1a1a1d; /* Manually sampled sub-heading gray */
-    margin-bottom: 15px; /* Precise gap after title */
-    letter-spacing: -0.5px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.4rem;
+    color: #1e293b;
+    margin-bottom: 15px;
     font-weight: 700;
 }
 
 .precise-trust-card p {
-    font-size: 1.1rem; /* Precise descriptive font-size */
-    color: #64748b; /* Manually sampled descriptive gray color */
-    line-height: 1.7; /* Sampling the open, airy line height */
-    max-width: 450px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.6;
 }
 
-/* Mobile Responsiveness for 1 to 1 recreation */
-@media (max-width: 992px) {
-    .centered-title { font-size: 2.8rem; }
-    .precise-trust-grid {
-        grid-template-columns: 1fr; /* Switch to single column on mobile */
-    }
-}
+/* Mobile Tweak */
 @media (max-width: 768px) {
-    .precise-trust-card { padding: 40px; }
+    .section-trust { padding: 60px 20px; }
+    .precise-trust-grid { grid-template-columns: 1fr; }
 }
