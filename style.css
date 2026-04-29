@@ -233,15 +233,16 @@ body::after {
     transform: translateY(-10px);
     background: var(--coway-blue);
     color: white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* This specifically kills the purple color after clicking */
-.mini-card:link, 
-.mini-card:visited, 
+.mini-card:link,
+.mini-card:visited,
 .mini-card:active {
     text-decoration: none;
-    color: var(--primary); /* Or whatever color your text was originally */
+    color: var(--primary);
+    /* Or whatever color your text was originally */
 }
 
 .mini-icon {
@@ -1046,8 +1047,10 @@ section {
     }
 
     .hero-content {
-        align-items: center;    /* Centers the badge and buttons */
-        text-align: center;      /* Centers the text lines */
+        align-items: center;
+        /* Centers the badge and buttons */
+        text-align: center;
+        /* Centers the text lines */
     }
 
     .hero-title {
@@ -1061,16 +1064,21 @@ section {
     }
 
     .hero-ctas {
-        display: flex;          /* Ensure it is using flexbox */
-        justify-content: center; /* This centers the buttons horizontally */
-        width: 100%;            /* Allows it to use the full width to find the center */
-        gap: 15px;              /* Keeps the gap between buttons if you have two */
+        display: flex;
+        /* Ensure it is using flexbox */
+        justify-content: center;
+        /* This centers the buttons horizontally */
+        width: 100%;
+        /* Allows it to use the full width to find the center */
+        gap: 15px;
+        /* Keeps the gap between buttons if you have two */
     }
-    
+
     /* If your "WhatsApp" button is full width on mobile */
     .btn-primary {
         width: 100%;
-        max-width: 350px; /* Keeps it from looking too stretched */
+        max-width: 350px;
+        /* Keeps it from looking too stretched */
     }
 }
 
@@ -1649,7 +1657,8 @@ section {
 }
 
 .faq-grid {
-    max-width: 800px; /* Keeps the FAQ from getting too wide on desktop */
+    max-width: 800px;
+    /* Keeps the FAQ from getting too wide on desktop */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -1693,7 +1702,8 @@ section {
 /* --- The Answer Reveal --- */
 .faq-answer {
     display: grid;
-    grid-template-rows: 0fr; /* Starts at 0 height */
+    grid-template-rows: 0fr;
+    /* Starts at 0 height */
     transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0 30px;
 }
@@ -1716,19 +1726,29 @@ section {
 }
 
 .faq-item.active .faq-icon {
-    transform: rotate(45deg); /* Turns plus into an X */
+    transform: rotate(45deg);
+    /* Turns plus into an X */
     color: #1e293b;
 }
 
 .faq-item.active .faq-answer {
-    grid-template-rows: 1fr; /* Animates perfectly to the exact height of text */
+    grid-template-rows: 1fr;
+    /* Animates perfectly to the exact height of text */
 }
 
 /* Mobile Tweak */
 @media (max-width: 968px) {
-    .section-faq { padding: 60px 20px; }
-    .faq-question { padding: 20px; }
-    .faq-question span { font-size: 1rem; }
+    .section-faq {
+        padding: 60px 20px;
+    }
+
+    .faq-question {
+        padding: 20px;
+    }
+
+    .faq-question span {
+        font-size: 1rem;
+    }
 }
 
 /* ========================================
@@ -1736,20 +1756,21 @@ section {
    ======================================== */
 .section-claim-promo {
     /* 1. Force the background to the edges */
-    width: 100vw;              /* Force width to 100% of the viewport */
+    width: 100vw;
+    /* Force width to 100% of the viewport */
     position: relative;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    
+
     /* 2. Visuals */
     background: linear-gradient(145deg, #0ac5c6 0%, #0ab5da 100%);
     padding: 100px 0;
     color: white;
-    
+
     /* 3. Remove any card-like styles */
-    border-radius: 0 !important; 
+    border-radius: 0 !important;
     box-shadow: none !important;
 }
 
@@ -1758,16 +1779,17 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    display: block; /* Ensure it doesn't inherit grid if not intended */
+    display: block;
+    /* Ensure it doesn't inherit grid if not intended */
 }
 
 /* The split layout inside the container */
 .claim-split {
     display: grid;
     /* Balanced the ratio so the form side has more space */
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     /* Increased gap between text and form */
-    gap: 80px; 
+    gap: 80px;
     align-items: center;
 }
 
@@ -1831,23 +1853,24 @@ section {
     background: white;
     color: #1d1d1f;
     /* Increased horizontal padding for more breathing room */
-    padding: 60px 55px; 
+    padding: 60px 55px;
     border-radius: 35px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
     width: 100%;
     /* Increased from 460px to 580px */
-    max-width: 580px; 
+    max-width: 580px;
     margin-left: auto;
 }
 
 .form-inner-card h3 {
     text-align: center;
-    color: #002d5d; /* Matches your --primary */
+    color: #002d5d;
+    /* Matches your --primary */
     font-size: 1.8rem;
     margin-bottom: 8px;
 }
 
-.form-inner-card > p {
+.form-inner-card>p {
     text-align: center;
     color: #86868b;
     font-size: 0.9rem;
@@ -1914,18 +1937,23 @@ section {
         text-align: center;
         gap: 40px;
     }
-    
-    .claim-desc, .claim-trust-list {
+
+    .claim-desc,
+    .claim-trust-list {
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .claim-form-wrapper {
         justify-content: center;
     }
-    
+
     .form-inner-card {
         max-width: 100%;
         padding: 45px 30px;
+    }
+
+    .form-group-custom label {
+        text-align: left;
     }
 }
