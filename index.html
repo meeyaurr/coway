@@ -518,10 +518,24 @@
         setPositionByIndex();
 
         //faq logic
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                faqItem.classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    // Find the parent 'faq-item'
+                    const item = question.parentElement;
+
+                    // Close other open FAQ items (Optional - creates a cleaner accordion)
+                    document.querySelectorAll('.faq-item').forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle the 'active' class on the clicked item
+                    item.classList.toggle('active');
+                });
             });
         });
     </script>
