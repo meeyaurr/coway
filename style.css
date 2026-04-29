@@ -1277,23 +1277,24 @@ section {
 /* --- The "Auto-Fit" Grid --- */
 .precise-trust-grid {
     display: grid;
-    /* This tells the grid to fit as many columns as possible, but max 2 per row */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 25px;
-    max-width: 1100px; /* Prevents cards from getting "way too big" on desktop */
-    margin: 0 auto;    /* Centers the grid container */
+    /* Use 4 columns by default for desktop */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    /* Increase max-width to allow 4 cards to breathe */
+    max-width: 1300px; 
+    margin: 0 auto;
+    width: 100%;
 }
 
 .precise-trust-card {
     background: #ffffff;
     border-radius: 30px;
-    /* Responsive padding: smaller on small screens, bigger on large */
-    padding: clamp(30px, 5vw, 50px); 
-    border: 1px solid rgba(0,0,0,0.03); /* Subtle border for definition on transparent bg */
+    /* Reduce padding slightly so cards don't feel too tall when narrow */
+    padding: 30px 25px; 
+    border: 1px solid rgba(0,0,0,0.03);
     box-shadow: 0 15px 35px rgba(0, 77, 91, 0.05);
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ensures all cards in a row are same height */
 }
 
 /* --- Icons --- */
