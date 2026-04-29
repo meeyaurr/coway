@@ -1232,3 +1232,111 @@ section {
         justify-content: center;
     }
 }
+
+/* ========================================
+   1 TO 1 TRUST GRID RECREATION (Image 9)
+   ======================================== */
+
+.section-alt {
+    background-color: #f7fbfc; /* Manually sampled very subtle background color */
+}
+
+/* --- The Header --- */
+.section-header-centered {
+    text-align: center;
+    margin-bottom: 70px; /* Specific gap from title to grid */
+    font-family: 'Times New Roman', Times, serif; /* sampled title font style is serif-based */
+}
+
+.centered-sub-title {
+    display: block;
+    color: #4daeb5; /* Precise sub-title teal */
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.centered-title {
+    font-size: 4rem; /* Matching the huge font size */
+    color: #1e293b; /* Manually sampled title dark gray */
+    line-height: 1.1;
+    letter-spacing: -2px;
+    font-weight: 500;
+}
+
+.centered-title span {
+    color: #4daeb5; /* Precise highlighted title teal */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* --- The Grid --- */
+.precise-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Exactly 2x2 on desktop */
+    gap: 30px; /* Precise gap between cards */
+}
+
+/* --- The Individual Card --- */
+.precise-trust-card {
+    background: #ffffff;
+    border-radius: 35px; /* Manual sample rounded corners */
+    padding: 60px; /* Manually sampled internal spacing */
+    box-shadow: 0 10px 40px rgba(0, 77, 91, 0.05); /* Soft teal-toned shadow */
+}
+
+/* --- The Icon Box logic --- */
+.trust-icon-box {
+    width: 65px; /* Precise icon container size */
+    height: 65px;
+    border-radius: 18px; /* Precise rounded icon box corner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px; /* Precise gap after icon */
+}
+
+.trust-icon-box i {
+    width: 30px; /* Presice icon visual size */
+    height: 30px;
+    color: #ffffff; /* sampled internal icon color is white */
+}
+
+/* Specific sampled icon box colors based on Image 9 */
+.halal-icon    { background-color: #4dc2c9; }
+.heart-icon    { background-color: #26b5d9; }
+.install-icon  { background-color: #21b5b5; }
+.personal-icon { background-color: #38b5da; }
+
+/* --- Typographical fine-tuning --- */
+.precise-trust-card h4 {
+    font-size: 1.6rem; /* Precise font-size */
+    color: #1a1a1d; /* Manually sampled sub-heading gray */
+    margin-bottom: 15px; /* Precise gap after title */
+    letter-spacing: -0.5px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+}
+
+.precise-trust-card p {
+    font-size: 1.1rem; /* Precise descriptive font-size */
+    color: #64748b; /* Manually sampled descriptive gray color */
+    line-height: 1.7; /* Sampling the open, airy line height */
+    max-width: 450px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Mobile Responsiveness for 1 to 1 recreation */
+@media (max-width: 992px) {
+    .centered-title { font-size: 2.8rem; }
+    .precise-trust-grid {
+        grid-template-columns: 1fr; /* Switch to single column on mobile */
+    }
+}
+@media (max-width: 768px) {
+    .precise-trust-card { padding: 40px; }
+}
