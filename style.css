@@ -1687,14 +1687,17 @@ section {
 
 .faq-icon {
     color: #4daeb5;
-    transition: transform 0.3s ease;
+    /* Make the plus rotation match the speed of the dropdown */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --- The Answer Reveal --- */
 .faq-answer {
-    max-height: 0; /* Hidden by default */
+    max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out; /* This creates the sliding effect */
+    /* Changed to 0.5s with a cubic-bezier for a "smooth bounce" feel */
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                padding 0.4s ease;
     padding: 0 30px;
 }
 
@@ -1717,8 +1720,11 @@ section {
 }
 
 .faq-item.active .faq-answer {
-    max-height: 300px; /* Large enough to fit your text */
-    padding-bottom: 20px;
+    /* Ensure this is large enough for your text, 
+       but not TOO large (shorter height = smoother animation) */
+    max-height: 400px; 
+    padding-bottom: 30px;
+    padding-top: 10px;
 }
 
 /* Mobile Tweak */
