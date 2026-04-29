@@ -621,21 +621,14 @@ body::after {
 .promo-badge {
     display: inline-flex;
     align-items: center;
-    background: #e0f4f9;
-    color: #0072b5;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.85rem;
+    padding: 10px 24px;
+    background: rgba(10, 197, 198, 0.1); /* Light teal tint */
+    border: 1px solid rgba(10, 197, 198, 0.2);
+    border-radius: 100px;
+    color: #0ac5c6;
+    font-size: 0.9rem;
     font-weight: 600;
-    margin-bottom: 25px;
-
-    /* --- THE CENTERING MAGIC --- */
-    align-self: center;
-    /* Moves ONLY this element to the center */
-    margin-left: auto;
-    /* Extra safety for older browsers */
-    margin-right: auto;
-    /* Extra safety for older browsers */
+    white-space: nowrap;
 }
 
 .product-grid {
@@ -914,6 +907,14 @@ section {
     font-size: 0.9rem;
 }
 
+/* Container for the centered badge */
+.hero-badge-wrapper {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    width: 100%;
+    margin-bottom: 40px;    /* Space between badge and the content below */
+}
+
 /* --- SECTION 2: WHY WORK WITH ME (Image 9) --- */
 .section-alt {
     background-color: #f4f9ff;
@@ -1085,10 +1086,9 @@ section {
 /* Hero Split Layout */
 .hero-split {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 80px;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
     align-items: center;
-    justify-content: start;
 }
 
 /* Technician Profile Badge */
