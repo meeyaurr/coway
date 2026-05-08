@@ -1977,87 +1977,85 @@ section {
     }
 }
 
-/* --- SPECS & PRICE TABLE (1:1 RECREATION) --- */
-.specs-container {
-    background-color: #555555; /* The dark gray from your image */
-    color: #e5e5e5;
-    padding: 60px 40px;
-    border-radius: 4px;
-    margin: 40px 0;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+/* --- SPECS TABLE (COWAY DESIGN MATCH) --- */
+.product-specs-wrapper {
+    padding: 80px 0;
+    width: 100%;
 }
 
-.specs-header h2 {
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: #d1d1d1;
-    margin: 0;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.specs-header p {
-    font-size: 1.1rem;
-    color: #c0c0c0;
-    margin: 10px 0 40px 0;
+.specs-table-container {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(0, 45, 93, 0.05); /* Soft corporate shadow */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    margin-top: 40px;
 }
 
 .specs-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.95rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .specs-table th {
     text-align: left;
-    padding: 15px 10px;
-    border-top: 1px solid #888;
-    border-bottom: 1px solid #888;
-    color: #ffffff;
-    font-weight: 400;
+    padding: 20px 15px;
+    color: var(--primary);
+    font-weight: 800;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--coway-blue); /* Teal accent line */
 }
 
 .specs-table td {
-    padding: 20px 10px;
-    vertical-align: top;
+    padding: 20px 15px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-/* Series, Type, Price Labels */
-.section-divider td {
-    padding-top: 30px;
-    padding-bottom: 10px;
+/* Category Headers (SERIES, TYPE, PRICE) */
+.table-cat-row td {
+    background: #fbfbfd;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--coway-blue);
+    font-size: 0.75rem;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-}
-
-/* Horizontal lines between rows */
-.specs-table tr:not(.section-divider) td {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.specs-table tr:last-child td {
+    letter-spacing: 1.5px;
+    padding: 15px 15px;
     border-bottom: none;
+}
+
+.price-highlight {
+    color: var(--coway-blue);
+    font-size: 1.1rem;
+}
+
+.model-code {
+    background: #f0f7ff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    color: var(--primary);
 }
 
 .specs-table small {
     display: block;
+    color: var(--text-sub);
+    font-size: 0.75rem;
     margin-top: 4px;
-    opacity: 0.8;
-    font-size: 0.8rem;
 }
 
-/* Mobile Responsiveness */
+/* Responsive Table */
 @media (max-width: 768px) {
-    .specs-container {
-        padding: 30px 15px;
-        overflow-x: auto; /* Allows table to slide on small phones */
+    .specs-table-container {
+        padding: 20px;
+        overflow-x: auto;
     }
-    .specs-header h2 { font-size: 2rem; }
-    .specs-table { min-width: 600px; }
+    .specs-table {
+        min-width: 650px; /* Forces scroll on mobile for readability */
+    }
 }
