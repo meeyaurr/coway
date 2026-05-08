@@ -655,7 +655,7 @@ body::after {
 }
 
 .img-container {
-    height: 220px;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
