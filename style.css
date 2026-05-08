@@ -659,11 +659,11 @@ body::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .img-container img {
-    max-height: 130%;
+    max-height: 140%;
     width: auto;
 }
 
