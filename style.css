@@ -663,7 +663,7 @@ body::after {
 }
 
 .img-container img {
-    max-height: 167%;
+    max-height: 160%;
     width: auto;
 }
 
