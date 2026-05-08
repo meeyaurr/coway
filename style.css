@@ -655,7 +655,7 @@ body::after {
 }
 
 .img-container {
-    height: 500px;
+    height: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -663,7 +663,7 @@ body::after {
 }
 
 .img-container img {
-    max-height: 50%;
+    max-height: 200%;
     width: auto;
 }
 
