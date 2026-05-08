@@ -1977,85 +1977,95 @@ section {
     }
 }
 
-/* --- SPECS TABLE (COWAY DESIGN MATCH) --- */
+/* --- INTEGRATED SPECS TABLE FIX --- */
 .product-specs-wrapper {
-    padding: 80px 0;
+    padding: 20px 0;
     width: 100%;
+    background: transparent; /* Ensures it stays in the main card container */
 }
 
-.specs-table-container {
-    background: #ffffff;
-    border-radius: 30px;
-    padding: 40px;
-    box-shadow: 0 15px 40px rgba(0, 45, 93, 0.05); /* Soft corporate shadow */
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    margin-top: 40px;
+.specs-mini-header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
+.specs-mini-header h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.specs-pill {
+    color: var(--coway-blue);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* The Table now blends with the card */
 .specs-table {
     width: 100%;
     border-collapse: collapse;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-bottom: 20px;
 }
 
 .specs-table th {
     text-align: left;
-    padding: 20px 15px;
+    padding: 15px 10px;
     color: var(--primary);
     font-weight: 800;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    border-bottom: 2px solid var(--coway-blue); /* Teal accent line */
+    font-size: 0.75rem;
+    border-bottom: 2px solid var(--coway-blue); /* The teal line from your image */
 }
 
 .specs-table td {
-    padding: 20px 15px;
+    padding: 15px 10px;
+    font-size: 0.9rem;
     color: var(--text-main);
-    font-size: 0.95rem;
     border-bottom: 1px solid #f0f0f0;
 }
 
-/* Category Headers (SERIES, TYPE, PRICE) */
+/* Category Headers (SERIES, TYPE, PRICING) */
 .table-cat-row td {
-    background: #fbfbfd;
-    font-weight: 700;
+    background: #f8f9fa; /* Very subtle grey instead of a full white box */
     color: var(--coway-blue);
+    font-weight: 700;
     font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    padding: 15px 15px;
+    letter-spacing: 1px;
+    padding: 10px;
     border-bottom: none;
 }
 
 .price-highlight {
     color: var(--coway-blue);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
 }
 
 .model-code {
     background: #f0f7ff;
     padding: 4px 10px;
     border-radius: 6px;
-    font-size: 0.8rem;
-    margin-left: 10px;
-    color: var(--primary);
-}
-
-.specs-table small {
-    display: block;
-    color: var(--text-sub);
     font-size: 0.75rem;
-    margin-top: 4px;
+    color: var(--primary);
+    margin-left: 5px;
 }
 
-/* Responsive Table */
-@media (max-width: 768px) {
-    .specs-table-container {
-        padding: 20px;
+.specs-disclaimer {
+    font-size: 0.7rem;
+    color: var(--text-sub);
+    text-align: left;
+    line-height: 1.4;
+    margin-top: 20px;
+}
+
+/* Responsive fix */
+@media (max-width: 600px) {
+    .product-specs-wrapper {
         overflow-x: auto;
     }
     .specs-table {
-        min-width: 650px; /* Forces scroll on mobile for readability */
+        min-width: 500px;
     }
 }

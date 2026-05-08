@@ -165,11 +165,24 @@
                         <h3>Eco Lite</h3>
                     </center>
 
-                    <div class="section-header-centered">
-                        <span class="centered-sub-title">Product Details</span>
-                    </div>
+                    It looks like the "overlay" effect you're seeing is caused by the .specs-table-container having its
+                    own background, padding, and a box-shadow that creates a "card-on-card" look. Since your .card
+                    already has a background and padding, adding another card inside it makes it feel cluttered.
 
-                    <div class="specs-table-container">
+                    To fix this, we need to remove the extra container styling and let the table blend directly into the
+                    main card.
+
+                    1. Updated HTML (ecolite.html)
+                    I have removed the extra header div since your image shows you want the "Eco Lite" and "PRODUCT
+                    DETAILS" text to be simpler and integrated.
+
+                    HTML
+                    <div class="product-specs-wrapper">
+                        <div class="specs-mini-header">
+                            <h3>Eco Lite</h3>
+                            <span class="specs-pill">PRODUCT DETAILS</span>
+                        </div>
+
                         <table class="specs-table">
                             <thead>
                                 <tr>
@@ -201,7 +214,7 @@
                                     <td>Medium Firm</td>
                                 </tr>
                                 <tr>
-                                    <td>DIMENSION <small>(W x D x H)</small></td>
+                                    <td>DIMENSION <br><small>(W x D x H)</small></td>
                                     <td>1830 x 1900 x 305 mm</td>
                                     <td>1830 x 2150 x 1150 mm</td>
                                 </tr>
@@ -209,20 +222,17 @@
                                     <td colspan="3">PRICING PLAN</td>
                                 </tr>
                                 <tr>
-                                    <td>Monthly Rental <small>(Free 5-Year Service)</small></td>
+                                    <td>Monthly Rental <br><small>(Free 5-Year Service)</small></td>
                                     <td><strong class="price-highlight">RM 129</strong></td>
                                     <td><strong class="price-highlight">RM 159</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Outright Purchase <small>(Free 1-Year Service)</small></td>
-                                    <td>RM 5,200</td>
-                                    <td>RM 6,400</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <p>Mattress installation shall be done by Coway authorised logistics agency. <br>
-                            Specifications are subject to change without prior notice</p>
+                        <p class="specs-disclaimer">
+                            Mattress installation shall be done by Coway authorised logistics agency. <br>
+                            Specifications are subject to change without prior notice
+                        </p>
                     </div>
 
                     <a href="https://wa.me/601128503367?text=Hello!%20I'm%20interested%20in%20Eco%20Lite%20.%20Kindly%20share%20more%20details.%20Thanks!"
