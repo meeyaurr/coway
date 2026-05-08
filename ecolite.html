@@ -165,18 +165,6 @@
                         <h3>Eco Lite</h3>
                     </center>
 
-                    It looks like the "overlay" effect you're seeing is caused by the .specs-table-container having its
-                    own background, padding, and a box-shadow that creates a "card-on-card" look. Since your .card
-                    already has a background and padding, adding another card inside it makes it feel cluttered.
-
-                    To fix this, we need to remove the extra container styling and let the table blend directly into the
-                    main card.
-
-                    1. Updated HTML (ecolite.html)
-                    I have removed the extra header div since your image shows you want the "Eco Lite" and "PRODUCT
-                    DETAILS" text to be simpler and integrated.
-
-                    HTML
                     <div class="product-specs-wrapper">
                         <div class="specs-mini-header">
                             <h3>Eco Lite</h3>
